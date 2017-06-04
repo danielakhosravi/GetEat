@@ -1,0 +1,7 @@
+GetEat/.vs/config/applicationhost.config
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
