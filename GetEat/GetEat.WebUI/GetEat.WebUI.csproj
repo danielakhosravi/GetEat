@@ -52,6 +52,9 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -197,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Adminstrator\AdminstratorAreaRegistration.cs" />
     <Compile Include="Areas\Companies\CompaniesAreaRegistration.cs" />
+    <Compile Include="Areas\Companies\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -210,8 +214,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddressViewModel.cs" />
+    <Compile Include="Models\Areas.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrganisationViewModel.cs" />
+    <Compile Include="Models\RestourantViewModel.cs" />
+    <Compile Include="Models\ReviewViewModel.cs" />
+    <Compile Include="Models\RoleNames.cs" />
+    <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -229,6 +241,9 @@
     </Content>
     <Content Include="Areas\Adminstrator\Views\web.config" />
     <Content Include="Areas\Companies\Views\web.config" />
+    <Content Include="Areas\Companies\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Companies\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Companies\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -282,9 +297,7 @@
     <Folder Include="Areas\Adminstrator\Controllers\" />
     <Folder Include="Areas\Adminstrator\Models\" />
     <Folder Include="Areas\Adminstrator\Views\Shared\" />
-    <Folder Include="Areas\Companies\Controllers\" />
     <Folder Include="Areas\Companies\Models\" />
-    <Folder Include="Areas\Companies\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
