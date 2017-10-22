@@ -50,6 +50,8 @@
     <Compile Include="DataUnitOfWork.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Booking.cs" />
+    <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Kitchen.cs" />
     <Compile Include="Entities\Menu.cs" />
     <Compile Include="Entities\Organisation.cs" />
@@ -66,6 +68,14 @@
     <Compile Include="Migrations\201710072009034_Create_Reviews.cs" />
     <Compile Include="Migrations\201710072009034_Create_Reviews.Designer.cs">
       <DependentUpon>201710072009034_Create_Reviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220916072_CreateEvent.cs" />
+    <Compile Include="Migrations\201710220916072_CreateEvent.Designer.cs">
+      <DependentUpon>201710220916072_CreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220929489_CreateBooking.cs" />
+    <Compile Include="Migrations\201710220929489_CreateBooking.Designer.cs">
+      <DependentUpon>201710220929489_CreateBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710072009034_Create_Reviews.resx">
       <DependentUpon>201710072009034_Create_Reviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220916072_CreateEvent.resx">
+      <DependentUpon>201710220916072_CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220929489_CreateBooking.resx">
+      <DependentUpon>201710220929489_CreateBooking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

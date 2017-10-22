@@ -19,9 +19,20 @@ namespace DomainModel.Entities
         [Required]
         public string Name { get; set; }
 
+        public string About { get; set; }
+
         public string Phone { get; set; }
 
         public string Fax { get; set; }
+
+        public string WebSite { get; set; }
+
+        [ForeignKey("AddressId")]
+        public virtual Address HeadOfficeAddress { get; set; }
+
+        public int AddressId { get; set; }
+
+        public string RegistrationNumber { get; set; }
 
         public virtual ICollection<Restourant> Restourants { get; set; }
  

@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Entities
 {
-    public class Kitchen : BaseEntity
+    public class Event : BaseEntity
     {
         public string Name { get; set; }
 
+        public int RestourantId { get; set; }
+
         public string Description { get; set; }
+
+        public DateTime EventDateTime { get; set; }
     }
 }
