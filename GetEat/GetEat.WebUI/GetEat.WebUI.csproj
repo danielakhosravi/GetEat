@@ -218,6 +218,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg.png.jpeg" />
+    <Content Include="Content\images\bgroung.png.jpg" />
+    <Content Include="Content\images\bgsweet.png.jpg" />
+    <Content Include="Content\images\homePage.jpg" />
+    <Content Include="Content\images\log.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\swback.png.jpg" />
+    <Content Include="Content\images\Sweet.png.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -331,7 +339,6 @@
     <Folder Include="Areas\Companies\Controllers\" />
     <Folder Include="Areas\Companies\Models\" />
     <Folder Include="Areas\Companies\Views\Shared\" />
-    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

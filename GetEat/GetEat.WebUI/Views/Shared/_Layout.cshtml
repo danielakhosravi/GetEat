@@ -11,25 +11,25 @@
 <body>
     <!--Top Nav bar-->
     @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
+        </div>*@
     <!--Top Nav bar-->
     <!--Daniela Navigation bar-->
     <div id="mayNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -40,84 +40,48 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="#">
-                    <a class="navbar-brand navbar-left responsive" href="file:///C:/Users/Daniela/Desktop/GetEat/GetEat/Views/Home.html#">
-                        <img src="../images/logo.png" />
-                    </a>
+                <div class="navbar-header">
+                    <div class="#">
+                        <a class="navbar-brand navbar-left responsive" href="#">
+                            <img class="responsive" src="~/Content/images/Logo.png" />
+                        </a>
+                    </div>
                 </div>
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="file:///C:/Users/Daniela/Desktop/GetEat/GetEat/Views/RestorantsList.html#">Restaurants</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle cuisineMenue navbar " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Cuisine
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#" data-value="italian">Italian</a></li>
-                                <li><a href="#" data-value="french">French</a></li>
-                                <li><a href="#" data-value="asian">Asian</a></li>
-                                <li><a href="#" data-value="steaks grills">Steaks & Grills</a></li>
-                                <li><a href="#" data-value="indian">Indian</a></li>
-                                <li><a href="#" data-value="europian">Europian</a></li>
-                                <li><a href="#" data-value="fish seafood">Fish & Seafood</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    <li><a class="header-nav-link" href="~/Home/index">Home</a></li>
                 </ul>
-                <div class="col-sm-3 col-md-3">
-                    <form class="navbar-form" role="search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Type a place" name="q">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Registration.html">Sign in or Join</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Special events <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Weddings</a></li>
-                            <li><a href="#">Private parties</a></li>
-                            <li><a href="#">Birthday parties</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Business events</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                @Html.Partial("_LoginPartial")
+                @*<ul class="nav navbar-nav navbar-right">
+                    <li class="logForm"><a href="Registration.html">Sign in</a></li>
+                    <li class="logForm"><a href="Registration.html">Join</a></li>
+                </ul>*@
             </div>
         </div>
     </div>
 
     <!--End Daniela Navigation bar-->
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        @*<footer>
+    @*<div class="container body-content">*@
+    @RenderBody()
+    <hr />
+    @*<footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>*@
-        <footer>
-            <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Contact.html">Contact us</a></li>
-                            <li><a href="#">Advertising campaign</a></li>
-                        </ul>
-
-                    </div>
+    <footer>
+        <div class="responsive navbar navbar-default navbar-fixed-bottom" role="navigation">
+               <div class="navbar-header">
+                   <ul class="nav navbar-nav footer">
+                       <li><a href="#">About us</a></li>
+                       <li><a href="#">Terms and conditions</a></li>
+                       <li><a href="#">Contact us</a></li>
+                   </ul>
                 </div>
-            </div>
-        </footer>
-    </div>
+           
+        </div>
+    </footer>
+    @*</div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

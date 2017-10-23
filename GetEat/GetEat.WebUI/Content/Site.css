@@ -1,25 +1,259 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
+/*
+/*.dl-horizontal dt {
+    white-space: normal;*/
+
 
 /* Set width on the form input elements since they're 100% wide by default */
+html {overflow-x: hidden;
+      margin:0,auto;
+      padding:0;
+}
 input,
 select,
 textarea {
-    max-width: 280px;
+    background-color: #fff;
+    border: hidden;
+    max-width: 430px;
+    position: relative;
+    line-height: 3em;
 }
 
+.form-horizontal .form-group {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+/*Navigation & Logo*/
+ul.nav.navbar-nav {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FE9D00;
+}
+
+    .navbar-default .navbar-nav > li > a:hover {
+        color:#DC8DC9;
+}
+
+.header-nav-link {
+    border-bottom: 1px solid;
+
+}
+
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.navbar-brand {
+    padding: 0px 10px;
+}
+
+.navbar-brand > img {
+        height: 100%;
+        width: 80%;
+    }
+
+
+/*NavigationFooter*/
+.footer > li {
+    padding-left: 20px;
+}
+
+/*HOME PAGE Main Part*/
+.background {
+    padding: 0;
+    margin: 51px 0px 0px 0px;
+    background-image: url('images/bgroung.png.jpg');
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    display: block;
+    width: 100%;
+}
+
+.maincontainer {
+    padding-top: 70px;
+}
+
+.transperant {
+    margin-top: 8%;
+    height: 400px;
+    background-color: rgba(0,0,0,0.5);
+    color:#fff;
+    padding-top: 3%;
+}
+
+div.ui-widget {
+    text-align: center;
+}
+
+    div.ui-widget > div {
+        display: inline-block;
+    }
+
+label {
+    padding: 0 1%;
+}
+
+span {
+    color: #808080;
+    font-size: 1.5em;
+}
+
+.searchbar {
+    width: 650px;
+    max-width: 90%;
+    position: relative;
+    background-color: #fff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    color: #808080;
+}
+
+.btnAll {
+    color: #fff;
+    background-color: #FE9D00;
+    font-weight: bold;
+    width: 130px;
+}
+
+    .btnAll:hover {
+        color: #2E142C;
+        background-color: #DC8DC9;
+    }
+
+.buttonGet {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-left: -5px;
+    border: hidden;
+    max-width: 50%;
+    position: relative;
+    line-height: 3em;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: #fff;
+    list-style-type: none;
+    max-width: 130px;
+    position: relative;
+    color:#fff;
+    cursor: pointer;
+    
+}
+
+@media only screen and (max-width: 740px) {
+    
+    div.searchbar {
+        width: 430px;
+        max-width: 100%;
+        line-height: 3em;
+        border-radius: 5px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+   
+
+    .buttonGet {
+        border-radius: 5px;
+        width: 430px;
+        max-width: 100%;
+        position: relative;
+        line-height: 3em;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+
+    input,
+    select,
+    textarea {
+        border:hidden;
+        width: 150px;
+        max-width: 100%;
+        position: relative;
+        line-height: 2em;
+        font-size: 12px;
+    }  
+    
+    input:hover {
+        border:hidden;
+        
+    }
+
+    label {
+        padding: 0;
+        font-size: 12px;
+    }
+}
+/*LOG IN & REGISTER*/
+.logbackground {
+    padding: 0;
+    width: 100%;
+    background-image: url('images/log.png');
+    margin: auto;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+}
+
+.headings {
+    text-align: right;
+    padding-right: 15%;
+}
+
+span {
+    color: #FE9D00;
+    font-size: small;
+}
+.linksaccount>a { color: #FE9D00;
+              
+}
+.linksaccount>a:hover { color: #DC8DC9;
+                      text-decoration:none;
+              
+}
+/*CONTACT*/
+
+.contactb {
+    padding: 0;
+    width: 100%;
+    background-image: url('images/bg.png.jpeg');
+    margin: auto;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+}

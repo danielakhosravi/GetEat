@@ -3,68 +3,35 @@
 }
 
 
-<div class="backgroundMain">
-    <div class="container">
-        <div class="transperant search">
-            <div class="title">
-                <h2>Find your GetEat place</h2>
+<div class="background">
+    <div class="maincontainer">
+        <div class="transperant">
+            <div class="text-center">
+                <h1>Find your GetEat place</h1>
                 <p>Pick out your favourite cuisine and check out top-class restaurants.</p>
             </div>
-
             <div class="row">
-                <div class="col-6 col-md-3">
-                    <div class="form-group">
-                        <select class="selectpicker form-control">
-                            <option value="1">1 person</option>
-                            <option value="2">2 people</option>
-                            <option value="3">3 people</option>
-                            <option value="4">4 people</option>
-                            <option value="5">5 people</option>
-                            <option value="6">6 people</option>
-                            <option value="7" selected="selected">7 people</option>
-                            <option value="8">8 people</option>
-                            <option value="9">9 people</option>
-                            <option value="10">10 people</option>
-                            <option value="11">11 people</option>
-                            <option value="12">12 people</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                <div class="col-12">
+                    <div class="ui-widget">
+                        <div class="responsive searchbar">
+                            <label for="city">Find</label>
+                            <input id="city" class="dropdown-toggle" placeholder="place, city">
+                            <span>|</span>
+                             <label for="cuisine">Kitchen</label>
+                            <input id="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
                         </div>
-
+                        <button class="dropdown-toggle buttonGet btnAll" type="submit" value="submit">Find GetEat</button>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker2" type="text" class="form-control">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-time"></i>
-                        </span>
-                    </div>
 
-                  
-                </div>
-                <div class="col-6 col-md-3">
-                    <button type="submit" class="btn btn-default finedGetEat">Find GetEat</button>
-                </div>
             </div>
         </div>
-
     </div>
+</div>
 
-</div>
-<div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags">
-</div>
 
 @section scripts {
-    <script type="text/javascript" src="~/Scripts/geteat/home.js"></script>
+    <script type="text/javascript" src="~/Scripts/geteat/home.js">
+      
+    </script>
 }

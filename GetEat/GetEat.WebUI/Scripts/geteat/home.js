@@ -1,37 +1,72 @@
 ﻿
 $(document).ready(function () {
-
+    
     // autocompelete
     var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
+      "Indonesian",
+      "Mexican",
+      "Italian",
+      "French",
+      "Chinese",
+      "Spanish",
+      "Japanese",
+      "Turkey",
+      "Indian",
+      "Iranian",
+      "Bulgarian",
+      "Sushi",
+      "Seafood",
+      "Fastfood",
+      "Fish",
+      "take away ",
+      "Burger",
+      "Pizza",
+      "Steaks and Grill",
+      "Seafood and Grill",
+      "Meditarranean",
+        ];
+    $("#cuisine").autocomplete({
+        source: availableTags,
+        classes: {
+            "ui-autocomplete": "highlight"
+        }
+    });
+    var availableTags = [
+      "Sofia",
+      "Bourgas",
+      "Varna",
+      "Rousse",
+      "Plovdiv",
+      "Stara Zagora",
+      "Pleven",
+      "Pazardzhik",
+      "Velingrad",
+      "Veliko Tarnovo",
+      "Asenovgrad",
+      "Balchik",
+      "Bansko",
+      "Bankia",
+      "Blagoevgrad",
+      "Vidin",
+      "Devnq",
+      "Dobrich",
+      "Kazanluk",
+      "Karlovo",
+      "Kalofer",
+      "Sopot"
     ];
-    $("#tags").autocomplete({
-        source: availableTags
+    $("#city").autocomplete({
+        source: availableTags,
+        classes: {
+            "ui-autocomplete": "highlight"
+        }
     });
 
-    // date picker intialization 
+    $('ul li').each(function (i) {
+        $(this).addClass('linksaccount'); 
+    });
 
+ 
     //$('#datetimepicker1').datetimepicker();
     ////
     //$('#timepicker2').timepicker({
