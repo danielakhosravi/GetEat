@@ -9,33 +9,79 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!--Top Nav bar-->
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+    <!--Top Nav bar-->
+    <!--Daniela Navigation bar-->
+    <div id="mayNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="navbar-header">
+                    <div class="#">
+                        <a class="navbar-brand navbar-left responsive" href="#">
+                            <img class="responsive" src="~/Content/images/Logo.png" />
+                        </a>
+                    </div>
+                </div>
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a class="header-nav-link" href="~/Home/index">Home</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+                @*<ul class="nav navbar-nav navbar-right">
+                    <li class="logForm"><a href="Registration.html">Sign in</a></li>
+                    <li class="logForm"><a href="Registration.html">Join</a></li>
+                </ul>*@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
+
+    <!--End Daniela Navigation bar-->
+    @*<div class="container body-content">*@
+    @RenderBody()
+    <hr />
+    @*<footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        </footer>*@
+    <footer>
+        <div class="responsive navbar navbar-default navbar-fixed-bottom" role="navigation">
+               <div class="navbar-header">
+                   <ul class="nav navbar-nav footer">
+                       <li><a href="#">About us</a></li>
+                       <li><a href="#">Terms and conditions</a></li>
+                       <li><a href="#">Contact us</a></li>
+                   </ul>
+                </div>
+           
+        </div>
+    </footer>
+    @*</div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
