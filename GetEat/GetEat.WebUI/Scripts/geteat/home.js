@@ -62,20 +62,21 @@ $(document).ready(function () {
         }
     });
 
-    $('ul li').each(function (i) {
-        $(this).addClass('linksaccount'); 
+    
+    $("a#registrate").on('click', function () {
+        $('input[type = checkbox]').prop('checked', true)
+        $(this).css('color', '#DC8DC9');
+        $("a#logIn").css('color', '#FE9D00');
+    });
+    $("a#logIn").on('click', function () {
+        $('input[type = checkbox]').prop('checked', false)
+        $(this).css('color', '#DC8DC9');
+        $("a#registrate").css('color', '#FE9D00');
+
     });
 
- 
-    //$('#datetimepicker1').datetimepicker();
-    ////
-    //$('#timepicker2').timepicker({
-    //    minuteStep: 1,
-    //    template: 'modal',
-    //    appendWidgetTo: 'body',
-    //    showSeconds: true,
-    //    showMeridian: false,
-    //    defaultTime: false
-    //});
-
+   
 });
+
+
+

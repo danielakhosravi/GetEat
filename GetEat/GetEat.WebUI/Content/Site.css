@@ -53,6 +53,7 @@ ul.nav.navbar-nav {
 
 .navbar-default .navbar-nav > li > a {
     color: #FE9D00;
+    
 }
 
     .navbar-default .navbar-nav > li > a:hover {
@@ -170,7 +171,7 @@ span {
     
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 768px) {
     
     div.searchbar {
         width: 430px;
@@ -238,22 +239,38 @@ span {
     font-size: small;
 }
 .linksaccount>a { color: #FE9D00;
+                  text-decoration:none;
+                 text-decoration-line:none;
               
 }
 .linksaccount>a:hover { color: #DC8DC9;
                       text-decoration:none;
-              
+              text-decoration-line:none;
 }
-/*CONTACT*/
 
-.contactb {
-    padding: 0;
-    width: 100%;
+/*/*/
+* /*CONTACT*/ * /*/*/
+.contactbackgr {
+    padding-top:200px;
+    width: 100%;  
+    /*background-image: url('images/l_4518_vegetable.garden.salad.jpg');*/
     background-image: url('images/bg.png.jpeg');
-    margin: auto;
-    height: 500px;
+    height: 280px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
+    margin-top:50px;
 }
+div.contacttransperant {
+    height: 80px;
+    padding-top:1%;
+    background-color: rgba(0,0,0,0.5);
+    color:#fff;
+    width:100%;
+    }
+.contactdetails {background-color:#EAEEF2;
+                 margin-bottom:0px;
+                 height:300px;
+}
+

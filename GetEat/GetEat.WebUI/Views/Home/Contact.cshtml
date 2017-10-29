@@ -1,19 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Get eat";
+    ViewBag.Title = "Contact Us";
 }
+<div class="contactbackgr">
+    <div class="contacttransperant">
+        <h2 class="text-center">@ViewBag.Title.</h2>
+        @*<h3>@ViewBag.Message</h3>*@
 
-<div class="transperant">
-<h2 class="">@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    </div>
 </div>
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<section class="contactdetails text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <address>
+                    <h3>Contact details</h3>
+                    <p>For general queries, please email</p>
+                    <strong>Support:</strong><a href="mailto:Support@geteat.com">Support@example.com</a>
+
+                    <p>If you're restaurant, please contact</p>
+                    <strong>Marketing:</strong><a href="mailto:Marketing@geteat.com">Marketing@example.com</a>
+                </address>
+            </div>
+            <div class="col-md-6">
+                <address>
+                    <h3>Address details</h3>
+                    One Microsoft Way<br />
+                    Redmond, WA 98052-6399<br />
+                    <abbr title="Phone">P:</abbr>
+                    425.555.0100
+                </address>
+            </div>
+        </div>
+    </div>
+</section>
+

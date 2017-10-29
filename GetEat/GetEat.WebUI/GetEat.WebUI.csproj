@@ -218,12 +218,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\46718a7c348cdca0c38000e88ea6d03b.jpg" />
     <Content Include="Content\images\bg.png.jpeg" />
     <Content Include="Content\images\bgroung.png.jpg" />
     <Content Include="Content\images\bgsweet.png.jpg" />
     <Content Include="Content\images\homePage.jpg" />
     <Content Include="Content\images\log.png" />
     <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\l_4518_vegetable.garden.salad.jpg" />
+    <Content Include="Content\images\orange-gibne.jpg" />
     <Content Include="Content\images\swback.png.jpg" />
     <Content Include="Content\images\Sweet.png.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
