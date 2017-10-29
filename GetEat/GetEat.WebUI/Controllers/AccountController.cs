@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GetEat.WebUI.Models;
+using Domain;
+using DomainModel;
 
 namespace GetEat.WebUI.Controllers
 {
@@ -17,15 +19,19 @@ namespace GetEat.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IAccountService accountService;
 
         public AccountController()
         {
+            accountService = new AccountService(new DataUnitOfWork());
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            accountService = new AccountService(new DataUnitOfWork());
+
         }
 
         public ApplicationSignInManager SignInManager
@@ -34,9 +40,9 @@ namespace GetEat.WebUI.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +126,7 @@ namespace GetEat.WebUI.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -155,15 +161,31 @@ namespace GetEat.WebUI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    string rolename = model.IsCustomerElseVisitor ? RoleNames.Customer : RoleNames.Visitor;
+                    await UserManager.AddToRoleAsync(user.Id, rolename);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    if (model.IsCustomerElseVisitor)
+                    {
+                        await accountService.CreateRestouranteor(user.Id);
+                    }
+                    else
+                    {
+                        await accountService.CreateBooker(user.Id);
+                    }
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var userProfileId = accountService.GetUserProfileId(user.Id);
 
-                    return RedirectToAction("Index", "Home");
+                    if (rolename == RoleNames.Customer)
+                    {
+                        return RedirectToAction("Index", "Restourants", new { area = AreasNames.Companies, id = userProfileId });
+                    }
+
+                    return RedirectToAction("Index", "Home", new { id = userProfileId });
                 }
                 AddErrors(result);
             }

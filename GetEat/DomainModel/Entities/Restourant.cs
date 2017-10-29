@@ -16,7 +16,20 @@ namespace DomainModel.Entities
 
         public string Name { get; set; }
 
+        public string Description { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string WebSite { get; set; }
+
         public int OrganisationId { get; set; }
+
+        public int KitchenId { get; set; }
+
+        [ForeignKey("KitchenId")]
+        public virtual Kitchen Kitchen { get; set; }
+
+        public virtual ICollection<Menu> Menus { get; set; }
 
         [ForeignKey("OrganisationId")]
         public virtual Organisation Organisation { get; set; }
@@ -29,5 +42,7 @@ namespace DomainModel.Entities
         public string PicGuidId { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

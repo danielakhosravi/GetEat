@@ -50,6 +50,8 @@
     <Compile Include="DataUnitOfWork.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Booking.cs" />
+    <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Kitchen.cs" />
     <Compile Include="Entities\Menu.cs" />
     <Compile Include="Entities\Organisation.cs" />
@@ -67,23 +69,43 @@
     <Compile Include="Migrations\201710072009034_Create_Reviews.Designer.cs">
       <DependentUpon>201710072009034_Create_Reviews.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710220916072_CreateEvent.cs" />
+    <Compile Include="Migrations\201710220916072_CreateEvent.Designer.cs">
+      <DependentUpon>201710220916072_CreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710220929489_CreateBooking.cs" />
+    <Compile Include="Migrations\201710220929489_CreateBooking.Designer.cs">
+      <DependentUpon>201710220929489_CreateBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Abstract\IOrganisationRepository.cs" />
+    <Compile Include="Repositories\Abstract\IUserProfileRepository.cs" />
+    <Compile Include="Repositories\Abstract\IRestourantRepository.cs" />
+    <Compile Include="Repositories\Concerete\RestourantRepository.cs" />
+    <Compile Include="Repositories\Concerete\BaseRepository.cs" />
+    <Compile Include="Repositories\Abstract\IAddressRepository.cs" />
+    <Compile Include="Repositories\Concerete\OrganisationRepository.cs" />
+    <Compile Include="Repositories\Concerete\AddressRepository.cs" />
+    <Compile Include="Repositories\Concerete\UserProfileRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\Abstract\" />
-    <Folder Include="Repositories\Concerete\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710071859226_Initial_database.resx">
       <DependentUpon>201710071859226_Initial_database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710072009034_Create_Reviews.resx">
       <DependentUpon>201710072009034_Create_Reviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220916072_CreateEvent.resx">
+      <DependentUpon>201710220916072_CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710220929489_CreateBooking.resx">
+      <DependentUpon>201710220929489_CreateBooking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
