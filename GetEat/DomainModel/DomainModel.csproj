@@ -81,8 +81,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstract\IOrganisationRepository.cs" />
     <Compile Include="Repositories\Abstract\IUserProfileRepository.cs" />
+    <Compile Include="Repositories\Abstract\IRestourantRepository.cs" />
+    <Compile Include="Repositories\Concerete\RestourantRepository.cs" />
     <Compile Include="Repositories\Concerete\BaseRepository.cs" />
+    <Compile Include="Repositories\Abstract\IAddressRepository.cs" />
     <Compile Include="Repositories\Concerete\OrganisationRepository.cs" />
+    <Compile Include="Repositories\Concerete\AddressRepository.cs" />
     <Compile Include="Repositories\Concerete\UserProfileRepository.cs" />
   </ItemGroup>
   <ItemGroup>

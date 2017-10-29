@@ -18,5 +18,10 @@ namespace DomainModel.Repositories.Concerete
         {
             _database.UserProfiles.Add(userProfile);
         }
+
+        public UserProfile GetUserProfileByAspId(string aspId)
+        {
+            return _database.UserProfiles.FirstOrDefault(u => u.AspNetUserId == aspId);
+        }
     }
 }

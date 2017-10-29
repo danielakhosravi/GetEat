@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GetEat.WebUI.Models;
+using Domain;
+using DomainModel;
 
 namespace GetEat.WebUI.Controllers
 {
@@ -17,15 +19,19 @@ namespace GetEat.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IAccountService accountService;
 
         public AccountController()
         {
+            accountService = new AccountService(new DataUnitOfWork());
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            accountService = new AccountService(new DataUnitOfWork());
+
         }
 
         public ApplicationSignInManager SignInManager
@@ -158,19 +164,28 @@ namespace GetEat.WebUI.Controllers
                     string rolename = model.IsCustomerElseVisitor ? RoleNames.Customer : RoleNames.Visitor;
                     await UserManager.AddToRoleAsync(user.Id, rolename);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    if (model.IsCustomerElseVisitor)
+                    {
+                        await accountService.CreateRestouranteor(user.Id);
+                    }
+                    else
+                    {
+                        await accountService.CreateBooker(user.Id);
+                    }
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var userProfileId = accountService.GetUserProfileId(user.Id);
 
                     if (rolename == RoleNames.Customer)
                     {
-                        return RedirectToAction("Index", "Dashboard", new { area = AreasNames.Companies});
+                        return RedirectToAction("Index", "Restourants", new { area = AreasNames.Companies, id = userProfileId });
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { id = userProfileId });
                 }
                 AddErrors(result);
             }

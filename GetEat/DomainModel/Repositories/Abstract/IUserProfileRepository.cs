@@ -10,5 +10,6 @@ namespace DomainModel.Repositories.Abstract
     public interface IUserProfileRepository
     {
         void Add(UserProfile userProfile);
+        UserProfile GetUserProfileByAspId(string aspId);
     }
 }

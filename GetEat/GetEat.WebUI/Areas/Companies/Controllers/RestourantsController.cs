@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using DomainModel;
 using DomainModel.Entities;
 using GetEat.WebUI.Models;
+using Domain;
 
 namespace GetEat.WebUI.Areas.Companies.Controllers
 {
@@ -16,9 +17,15 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
     public class RestourantsController : BaseCompaniesController
     {
         private GetEatContext db = new GetEatContext();
+        private readonly IAccountService accountService;
+
+        public RestourantsController()
+        {
+            accountService = new AccountService(new DataUnitOfWork());
+        }
 
         // GET: Companies/Restourants
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             var restourants = db.Restourants.Include(r => r.Address).Include(r => r.Organisation);
             return View(restourants.ToList());

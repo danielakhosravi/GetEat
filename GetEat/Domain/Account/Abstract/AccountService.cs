@@ -19,18 +19,64 @@ namespace Domain
 
         public async Task CreateBooker(string aspUserId)
         {
-            _dataUnitOfWork.UserProfileRepository.Add(new UserProfile { AspNetUserId = aspUserId });
-             await _dataUnitOfWork.SaveChangesAsync();
+            var userProfile = new UserProfile
+            {
+                AspNetUserId = aspUserId,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            };
+
+            _dataUnitOfWork.UserProfileRepository.Add(userProfile);
+            await _dataUnitOfWork.SaveChangesAsync();
         }
 
         public async Task CreateRestouranteor(string aspUserId)
         {
-            var userProfile = new UserProfile { AspNetUserId = aspUserId };
+            var userProfile = new UserProfile
+            {
+                AspNetUserId = aspUserId,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            };
+
+            var address = new Address()
+            {
+                Country = "Change Me",
+                City = "Change Mev",
+                Street = "Change Me",
+                Number = "Change Me",
+                Neighborhood = "Change Me",
+                Latitude = "Change Me",
+                Longitude = "Change Me",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            };
+
             _dataUnitOfWork.UserProfileRepository.Add(userProfile);
-            _dataUnitOfWork.OrganisationRepository.Add(new Organisation { OwnerProfileId = userProfile.Id });
+            _dataUnitOfWork.AddressRepository.Add(address);
+            await _dataUnitOfWork.SaveChangesAsync();
+
+            _dataUnitOfWork.OrganisationRepository.Add(new Organisation
+            {
+                OwnerProfileId = userProfile.Id,
+                Name = "Change Me",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+                AddressId = address.Id
+            });
 
             await _dataUnitOfWork.SaveChangesAsync();
+
         }
 
+        public int GetUserProfileId(string aspId)
+        {
+            var userProfile = _dataUnitOfWork.UserProfileRepository.GetUserProfileByAspId(aspId);
+            if (userProfile == null)
+            {
+                throw new ArgumentException(nameof(aspId));
+            }
+            return userProfile.Id;
+        }
     }
 }

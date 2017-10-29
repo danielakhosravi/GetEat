@@ -11,6 +11,10 @@ namespace DomainModel
     {
         IOrganisationRepository OrganisationRepository { get; }
         IUserProfileRepository UserProfileRepository { get; }
+        IAddressRepository AddressRepository { get; }
+        IRestourantRepository RestourantRepository { get; }
+
+        GetEatContext Database { get; }
 
         void SaveChanges();
         Task SaveChangesAsync();

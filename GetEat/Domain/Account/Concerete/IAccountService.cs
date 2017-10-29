@@ -6,5 +6,6 @@ namespace Domain
     {
         Task CreateBooker(string aspUserId);
         Task CreateRestouranteor(string aspUserId);
+        int GetUserProfileId(string id);
     }
 }
