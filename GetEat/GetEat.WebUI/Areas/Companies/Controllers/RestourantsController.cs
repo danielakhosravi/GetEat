@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using DomainModel;
 using DomainModel.Entities;
-
+using GetEat.WebUI.Models;
 
 namespace GetEat.WebUI.Areas.Companies.Controllers
 {
-    
+
     public class RestourantsController : BaseCompaniesController
     {
         private GetEatContext db = new GetEatContext();
@@ -25,12 +25,8 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         }
 
         // GET: Companies/Restourants/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Restourant restourant = db.Restourants.Find(id);
             if (restourant == null)
             {
@@ -40,11 +36,9 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         }
 
         // GET: Companies/Restourants/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Country");
-            ViewBag.OrganisationId = new SelectList(db.Organisations, "Id", "Name");
-            return View();
+            return View(new RestourantViewModel { OrganisationId = id });
         }
 
         // POST: Companies/Restourants/Create
@@ -52,11 +46,34 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,OrganisationId,AddressId,PicGuidId,CreatedDate,UpdatedDate")] Restourant restourant)
+        public ActionResult Create(RestourantViewModel restourant)
         {
             if (ModelState.IsValid)
             {
-                db.Restourants.Add(restourant);
+                var address = new Address
+                {
+                    Country = restourant.Address.Country,
+                    City = restourant.Address.City,
+                    Neighborhood = restourant.Address.Neighborhood,
+                    Street = restourant.Address.Street,
+                    Number = restourant.Address.Number,
+                    Latitude = restourant.Address.Latitude,
+                    Longitude = restourant.Address.Longitude,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                };
+                db.Addresses.Add(address);
+                db.SaveChanges();
+                db.Entry<Address>(address).Reload();
+
+                var newResourant = new Restourant
+                {
+                    AddressId = address.Id,
+                    OrganisationId = restourant.OrganisationId,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                };
+                db.Restourants.Add(newResourant);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

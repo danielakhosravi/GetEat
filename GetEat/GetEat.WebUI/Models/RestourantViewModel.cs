@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,7 @@ namespace GetEat.WebUI.Models
     public class RestourantViewModel
     {
         public int Id { get; set; }
-
+        [Required]
         public string Name { get; set; }
 
         public int OrganisationId { get; set; }
