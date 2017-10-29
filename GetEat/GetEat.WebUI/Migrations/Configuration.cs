@@ -17,41 +17,41 @@ namespace GetEat.WebUI.Migrations
 
         protected override void Seed(GetEat.WebUI.Models.ApplicationDbContext context)
         {
-            if (!context.Roles.Any(r => r.Name == "Adminstrator"))
+            if (!context.Roles.Any(r => r.Name == RoleNames.Adminstrator))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Adminstrator" };
+                var role = new IdentityRole { Name = RoleNames.Adminstrator };
 
                 manager.Create(role);
             }
 
-            if (!context.Roles.Any(r => r.Name == "Customer"))
+            if (!context.Roles.Any(r => r.Name == RoleNames.Customer))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Customer" };
+                var role = new IdentityRole { Name = RoleNames.Customer };
 
                 manager.Create(role);
             }
 
-            if (!context.Roles.Any(r => r.Name == "Visitor"))
+            if (!context.Roles.Any(r => r.Name == RoleNames.Visitor))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Visitor" };
+                var role = new IdentityRole { Name = RoleNames.Visitor };
 
                 manager.Create(role);
             }
 
-            if (!context.Users.Any(u => u.UserName == "Adminstrator"))
+            if (!context.Users.Any(u => u.UserName == RoleNames.Adminstrator))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser { UserName = "daniela", Email = "daniela@khosravi.bg" };
 
                 manager.Create(user, "Daniela123#");
-                manager.AddToRole(user.Id, "Adminstrator");
+                manager.AddToRole(user.Id, RoleNames.Adminstrator);
             }
 
         }

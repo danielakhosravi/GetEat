@@ -49,14 +49,30 @@
     <Reference Include="Autofac, Version=4.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.0.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Configuration, Version=4.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Configuration.4.0.1\lib\net45\Autofac.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -196,11 +212,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Adminstrator\AdminstratorAreaRegistration.cs" />
+    <Compile Include="Areas\Adminstrator\Controllers\KitchensController.cs" />
+    <Compile Include="Areas\Adminstrator\Controllers\OrganisationsController.cs" />
+    <Compile Include="Areas\Adminstrator\Controllers\RestourantsController.cs" />
     <Compile Include="Areas\Companies\CompaniesAreaRegistration.cs" />
+    <Compile Include="Areas\Companies\Controllers\AddressesController.cs" />
+    <Compile Include="Areas\Companies\Controllers\BaseCompaniesController.cs" />
+    <Compile Include="Areas\Companies\Controllers\EventsController.cs" />
+    <Compile Include="Areas\Companies\Controllers\MenusController.cs" />
+    <Compile Include="Areas\Companies\Controllers\OrganisationsController.cs" />
+    <Compile Include="Areas\Companies\Controllers\RestourantsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\RestourantsController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\UserProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,8 +237,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddressViewModel.cs" />
+    <Compile Include="Models\Areas.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrganisationViewModel.cs" />
+    <Compile Include="Models\RestourantViewModel.cs" />
+    <Compile Include="Models\ReviewViewModel.cs" />
+    <Compile Include="Models\RoleNames.cs" />
+    <Compile Include="Models\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -281,6 +316,50 @@
     </Content>
     <Content Include="Areas\Adminstrator\Views\web.config" />
     <Content Include="Areas\Companies\Views\web.config" />
+    <Content Include="Areas\Companies\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Companies\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Companies\Views\Restourants\Create.cshtml" />
+    <Content Include="Areas\Companies\Views\Restourants\Delete.cshtml" />
+    <Content Include="Areas\Companies\Views\Restourants\Details.cshtml" />
+    <Content Include="Areas\Companies\Views\Restourants\Edit.cshtml" />
+    <Content Include="Areas\Companies\Views\Restourants\Index.cshtml" />
+    <Content Include="Areas\Companies\Views\Addresses\Create.cshtml" />
+    <Content Include="Areas\Companies\Views\Addresses\Delete.cshtml" />
+    <Content Include="Areas\Companies\Views\Addresses\Details.cshtml" />
+    <Content Include="Areas\Companies\Views\Addresses\Edit.cshtml" />
+    <Content Include="Areas\Companies\Views\Addresses\Index.cshtml" />
+    <Content Include="Areas\Companies\Views\Organisations\Create.cshtml" />
+    <Content Include="Areas\Companies\Views\Organisations\Delete.cshtml" />
+    <Content Include="Areas\Companies\Views\Organisations\Details.cshtml" />
+    <Content Include="Areas\Companies\Views\Organisations\Edit.cshtml" />
+    <Content Include="Areas\Companies\Views\Organisations\Index.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Organisations\Create.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Organisations\Delete.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Organisations\Details.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Organisations\Edit.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Organisations\Index.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Restourants\Create.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Restourants\Delete.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Restourants\Details.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Restourants\Edit.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Restourants\Index.cshtml" />
+    <Content Include="Areas\Companies\Views\Menus\Create.cshtml" />
+    <Content Include="Areas\Companies\Views\Menus\Delete.cshtml" />
+    <Content Include="Areas\Companies\Views\Menus\Details.cshtml" />
+    <Content Include="Areas\Companies\Views\Menus\Edit.cshtml" />
+    <Content Include="Areas\Companies\Views\Menus\Index.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Kitchens\Create.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Kitchens\Delete.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Kitchens\Details.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Kitchens\Edit.cshtml" />
+    <Content Include="Areas\Adminstrator\Views\Kitchens\Index.cshtml" />
+    <Content Include="Areas\Companies\Views\Events\Create.cshtml" />
+    <Content Include="Areas\Companies\Views\Events\Delete.cshtml" />
+    <Content Include="Areas\Companies\Views\Events\Details.cshtml" />
+    <Content Include="Areas\Companies\Views\Events\Edit.cshtml" />
+    <Content Include="Areas\Companies\Views\Events\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\geteat\home.js" />
@@ -333,15 +412,24 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\UserProfiles\Create.cshtml" />
+    <Content Include="Views\UserProfiles\Delete.cshtml" />
+    <Content Include="Views\UserProfiles\Details.cshtml" />
+    <Content Include="Views\UserProfiles\Edit.cshtml" />
+    <Content Include="Views\UserProfiles\Index.cshtml" />
+    <Content Include="Views\Restourants\Details.cshtml" />
+    <Content Include="Views\Restourants\Index.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Adminstrator\Controllers\" />
     <Folder Include="Areas\Adminstrator\Models\" />
-    <Folder Include="Areas\Adminstrator\Views\Shared\" />
-    <Folder Include="Areas\Companies\Controllers\" />
     <Folder Include="Areas\Companies\Models\" />
-    <Folder Include="Areas\Companies\Views\Shared\" />
+    <Folder Include="Areas\Companies\Views\BaseCompanies\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

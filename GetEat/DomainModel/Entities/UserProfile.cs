@@ -17,5 +17,7 @@ namespace DomainModel.Entities
         public string SurName { get; set; }
 
         public string PicGuidId { get; set; }
+        
+        public string PhoneNumber { get; set; }
     }
 }
