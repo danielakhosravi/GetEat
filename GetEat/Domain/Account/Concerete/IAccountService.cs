@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using DomainModel.Entities;
+using System.Threading.Tasks;
 
 namespace Domain
 {
@@ -7,5 +8,6 @@ namespace Domain
         Task CreateBooker(string aspUserId);
         Task CreateRestouranteor(string aspUserId);
         int GetUserProfileId(string id);
+        Organisation GetOrganisation(int userProgileId);
     }
 }

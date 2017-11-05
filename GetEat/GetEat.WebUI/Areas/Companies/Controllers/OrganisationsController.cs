@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DomainModel;
 using DomainModel.Entities;
+using GetEat.WebUI.Models;
 
 namespace GetEat.WebUI.Areas.Companies.Controllers
 {
@@ -15,7 +16,7 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
     {
         private GetEatContext db = new GetEatContext();
 
-  
+
         // GET: Companies/Organisations/Details/5
         public ActionResult Details(int? id)
         {
@@ -31,7 +32,7 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
             return View(organisation);
         }
 
-    
+
         // GET: Companies/Organisations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -40,12 +41,20 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Organisation organisation = db.Organisations.Find(id);
+
+            var vm = new OrganisationViewModel
+            {
+                Id = organisation.Id,
+                Name = organisation.Name,
+                Phone = organisation.Phone,
+                Fax = organisation.Fax
+            };
             if (organisation == null)
             {
                 return HttpNotFound();
             }
             ViewBag.OwnerProfileId = new SelectList(db.UserProfiles, "Id", "AspNetUserId", organisation.OwnerProfileId);
-            return View(organisation);
+            return View(vm);
         }
 
         // POST: Companies/Organisations/Edit/5
@@ -53,13 +62,20 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,OwnerProfileId,Name,Phone,Fax,CreatedDate,UpdatedDate")] Organisation organisation)
+        public ActionResult Edit(OrganisationViewModel organisation)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(organisation).State = EntityState.Modified;
+                Organisation oldOrganisation = db.Organisations.Find(organisation.Id);
+                oldOrganisation.Name = organisation.Name;
+                oldOrganisation.Phone = organisation.Phone;
+                oldOrganisation.Fax = organisation.Fax;
+                oldOrganisation.UpdatedDate = DateTime.Now;
+
+
+                db.Entry(oldOrganisation).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = oldOrganisation.Id });
             }
             ViewBag.OwnerProfileId = new SelectList(db.UserProfiles, "Id", "AspNetUserId", organisation.OwnerProfileId);
             return View(organisation);
