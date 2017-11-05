@@ -18,5 +18,10 @@ namespace DomainModel.Repositories.Concerete
         {
             _database.Organisations.Add(organisation);
         }
+
+        public Organisation GetOrganisation(int userProgileId)
+        {
+            return _database.Organisations.FirstOrDefault(x => x.OwnerProfileId == userProgileId);
+        }
     }
 }

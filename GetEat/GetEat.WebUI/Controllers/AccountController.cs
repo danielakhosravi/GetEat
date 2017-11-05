@@ -85,7 +85,21 @@ namespace GetEat.WebUI.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    string aspUserId = SignInManager.AuthenticationManager.AuthenticationResponseGrant.Identity.GetUserId();
+                    var userProfileId = accountService.GetUserProfileId(aspUserId);
+
+
+
+                    if (UserManager.GetRoles(aspUserId).First() == RoleNames.Customer)
+                    {
+                        var organisation = accountService.GetOrganisation(userProfileId);
+                        SessionState.CurrentOrganisationId = organisation.Id;
+                        return RedirectToAction("Index", "Restourants", new { area = AreasNames.Companies, organisationId = organisation.Id });
+                    }
+
+                    return RedirectToAction("Index", "Home", new { id = userProfileId });
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -180,9 +194,12 @@ namespace GetEat.WebUI.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     var userProfileId = accountService.GetUserProfileId(user.Id);
 
+
                     if (rolename == RoleNames.Customer)
                     {
-                        return RedirectToAction("Index", "Restourants", new { area = AreasNames.Companies, id = userProfileId });
+                        var organisation = accountService.GetOrganisation(userProfileId);
+                        SessionState.CurrentOrganisationId = organisation.Id;
+                        return RedirectToAction("Details", "Organisations", new { area = AreasNames.Companies, id = organisation.Id });
                     }
 
                     return RedirectToAction("Index", "Home", new { id = userProfileId });
