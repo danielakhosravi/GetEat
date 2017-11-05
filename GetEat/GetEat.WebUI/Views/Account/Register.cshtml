@@ -8,57 +8,57 @@
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    
-    <div class="logbackground">
+
+    <div class="container-fluid logbackground">
         <h2>@ViewBag.Title.</h2>
         <div class="row transperant">
-            
-            @Html.AntiForgeryToken()
-            <h1 class="text-center">Create a new account.</h1>
-            <hr class="hidden" />
-            @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
-            <div class="form-group">
-                               
-                <div class="col-6 col-md-offset-5">
-                    <ul id="smt" class="list-inline">
-                        <li class="linksaccount">
-                            <a  id="registrate" href="#$" >Restouranter</a>
-                        </li>
+            <section class="col-sm-12 col-md-4 col-md-push-4">
+                @Html.AntiForgeryToken()
+                <h1 class="text-center">Create a new account.</h1>
+                <hr class="hidden" />
+                @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+                <div class="form-group">
+                    <ul id="smt" class="list-inline text-center">
+                        <li class="linksaccount"><a id="registrate" href="#$">Restouranter</a></li>
                         <span>or</span>
-                        <li class="linksaccount">
-                            <a href="#" id="logIn">Book your table</a>
-                        </li>
+                        <li class="linksaccount"><a href="#" id="logIn">Book your table</a></li>
                     </ul>
-                    @Html.CheckBoxFor(m => m.IsCustomerElseVisitor, new { @class = "regbox", })
+                    @Html.CheckBoxFor(m => m.IsCustomerElseVisitor, new { @class = "regbox hidden", })
                     @*@Html.LabelFor(m => m.IsCustomerElseVisitor, new { @class = "control-label" })*@
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Email, new { @class = "col-6 col-md-4 control-label" })
-                <div class="col-6 col-md-4">
+
+                <div class="form-group form-inline">
+                    <div class="label">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                    </div>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "" })
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Password, new { @class = "col-6 col-md-4 control-label" })
-                <div class="col-6 col-md-4">
+
+                <div class="form-group form-inline">
+                    <div class="label">
+                        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    </div>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "" })
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-6 col-md-4 control-label" })
-                <div class="col-6 col-md-4">
+
+                <div class="form-group form-inline">
+                    <div class="label">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                    </div>
                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-8">
+
+                <div class="form-group form-inline">
                     <input type="submit" class="btn btnAll" value="Register" />
                 </div>
-            </div>
+            </section>
+
+            <aside class="col-md-4 col-md-pull-4"></aside>
+            <aside class="col-md-4"></aside>
+
         </div>
     </div>
 

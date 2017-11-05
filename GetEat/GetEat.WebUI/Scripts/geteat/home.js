@@ -1,6 +1,14 @@
 ﻿
 $(document).ready(function () {
+
+    //Background height
+
+    $(window).on("load resize",function(){
+        $(".screen-bgr").css("height", window.innerHeight);
+    });
     
+
+
     // autocompelete
     var availableTags = [
       "Indonesian",
