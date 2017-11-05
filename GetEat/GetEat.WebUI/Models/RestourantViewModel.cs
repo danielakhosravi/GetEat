@@ -12,6 +12,9 @@ namespace GetEat.WebUI.Models
         [Required]
         public string Name { get; set; }
 
+        public string Description { get; set; }
+
+
         public int OrganisationId { get; set; }
 
         public virtual OrganisationViewModel Organisation { get; set; }
@@ -23,6 +26,6 @@ namespace GetEat.WebUI.Models
         public string PicGuidId { get; set; }
 
         public virtual ICollection<ReviewViewModel> Reviews { get; set; }
-
+        public int KitchenId { get;  set; }
     }
 }

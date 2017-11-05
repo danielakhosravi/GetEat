@@ -20,8 +20,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="~/companies/Restourants/Index">Restourants</a></li>
-                    <li><a href="~/Companies/Organisations/Details/2">Organisation Profile</a></li>
+                    <li>@Html.ActionLink("Organisation Profile", "Details", "Organisations", new { area = "Companies", id = SessionState.CurrentOrganisationId }, null)</li>
+                    <li>@Html.ActionLink("My Restourants", "Index", "Restourants", new { area = "Companies", organisationId = SessionState.CurrentOrganisationId }, null)</li>
 
                 </ul>
             </div>

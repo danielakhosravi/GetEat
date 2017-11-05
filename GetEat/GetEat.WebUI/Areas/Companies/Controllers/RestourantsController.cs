@@ -25,16 +25,19 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         }
 
         // GET: Companies/Restourants
-        public ActionResult Index(int id)
+        public ActionResult Index(int organisationId)
         {
-            var restourants = db.Restourants.Include(r => r.Address).Include(r => r.Organisation);
-            return View(restourants.ToList());
+            ViewBag.OrganisationId = organisationId;
+
+            var restourants = db.Restourants.Where(x => x.OrganisationId == organisationId).Include(r => r.Address).Include(r => r.Organisation).ToList();
+            return View(restourants);
         }
 
         // GET: Companies/Restourants/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int restourantId)
         {
-            Restourant restourant = db.Restourants.Find(id);
+            //id is restourant id
+            Restourant restourant = db.Restourants.Find(restourantId);
             if (restourant == null)
             {
                 return HttpNotFound();
@@ -43,9 +46,12 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         }
 
         // GET: Companies/Restourants/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(int organisationId)
         {
-            return View(new RestourantViewModel { OrganisationId = id });
+            var restourant = new RestourantViewModel { OrganisationId = organisationId };
+            ViewBag.KitchenId = new SelectList(db.Kitchens, "Id", "Name", restourant.KitchenId);
+
+            return View(restourant);
         }
 
         // POST: Companies/Restourants/Create
@@ -55,34 +61,11 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RestourantViewModel restourant)
         {
+            ViewBag.OrganisationId = restourant.OrganisationId;
             if (ModelState.IsValid)
             {
-                var address = new Address
-                {
-                    Country = restourant.Address.Country,
-                    City = restourant.Address.City,
-                    Neighborhood = restourant.Address.Neighborhood,
-                    Street = restourant.Address.Street,
-                    Number = restourant.Address.Number,
-                    Latitude = restourant.Address.Latitude,
-                    Longitude = restourant.Address.Longitude,
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
-                };
-                db.Addresses.Add(address);
-                db.SaveChanges();
-                db.Entry<Address>(address).Reload();
-
-                var newResourant = new Restourant
-                {
-                    AddressId = address.Id,
-                    OrganisationId = restourant.OrganisationId,
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
-                };
-                db.Restourants.Add(newResourant);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                CreateRestourant(restourant);
+                return RedirectToAction("Index", new { OrganisationId = restourant.OrganisationId });
             }
 
             ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Country", restourant.AddressId);
@@ -90,21 +73,89 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
             return View(restourant);
         }
 
-        // GET: Companies/Restourants/Edit/5
-        public ActionResult Edit(int? id)
+        private void CreateRestourant(RestourantViewModel restourant)
         {
-            if (id == null)
+            var address = new Address
+            {
+                Country = restourant.Address.Country,
+                City = restourant.Address.City,
+                Neighborhood = restourant.Address.Neighborhood,
+                Street = restourant.Address.Street,
+                Number = restourant.Address.Number,
+                Latitude = restourant.Address.Latitude,
+                Longitude = restourant.Address.Longitude,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+            };
+
+            db.Addresses.Add(address);
+            db.SaveChanges();
+            db.Entry<Address>(address).Reload();
+
+
+
+            var newResourant = new Restourant
+            {
+                Name = restourant.Name,
+                Description = restourant.Description,
+                AddressId = address.Id,
+                OrganisationId = restourant.OrganisationId,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+                KitchenId = 2,
+                PicGuidId = Guid.NewGuid().ToString()
+            };
+            db.Restourants.Add(newResourant);
+            db.SaveChanges();
+        }
+
+        // GET: Companies/Restourants/Edit/5
+        public ActionResult Edit(int? restourantId)
+        {
+            // id is
+            if (restourantId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Restourant restourant = db.Restourants.Find(id);
-            if (restourant == null)
+
+            Restourant restourant = db.Restourants.Find(restourantId);
+            var mv = MapRestourant(restourant);
+
+            ViewBag.KitchenId = new SelectList(db.Kitchens, "Id", "Name", restourant.KitchenId);
+
+            return View(mv);
+        }
+
+        private RestourantViewModel MapRestourant(Restourant restourant)
+        {
+            var model = new RestourantViewModel
             {
-                return HttpNotFound();
-            }
-            ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Country", restourant.AddressId);
-            ViewBag.OrganisationId = new SelectList(db.Organisations, "Id", "Name", restourant.OrganisationId);
-            return View(restourant);
+                Id = restourant.Id,
+                Description = restourant.Description,
+                AddressId = restourant.AddressId,
+                Address = new AddressViewModel()
+                {
+                    City = restourant.Address.City,
+                    Country = restourant.Address.Country,
+                    Neighborhood = restourant.Address.Neighborhood,
+                    Number = restourant.Address.Number,
+                    Latitude = restourant.Address.Latitude,
+                    Longitude = restourant.Address.Longitude,
+                    Street = restourant.Address.Street,
+                },
+                KitchenId = restourant.KitchenId,
+                Name = restourant.Name,
+                PicGuidId = restourant.PicGuidId,
+                OrganisationId = restourant.OrganisationId,
+                Reviews = restourant.Reviews.Select(x => new ReviewViewModel()
+                {
+                    Comment = x.Comment,
+                    Commentator = x.CommentatorUserProfile.ForeName + " " + x.CommentatorUserProfile.SurName,
+                    Score = x.Score
+                }).ToList()
+            };
+
+            return model;
         }
 
         // POST: Companies/Restourants/Edit/5
@@ -112,27 +163,51 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,OrganisationId,AddressId,PicGuidId,CreatedDate,UpdatedDate")] Restourant restourant)
+        public ActionResult Edit(RestourantViewModel model)
         {
             if (ModelState.IsValid)
             {
+                Restourant restourant = MapViewModel(model);
+
                 db.Entry(restourant).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Index", new { organisationId = model.OrganisationId });
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Country", restourant.AddressId);
-            ViewBag.OrganisationId = new SelectList(db.Organisations, "Id", "Name", restourant.OrganisationId);
-            return View(restourant);
+
+            ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Country", model.AddressId);
+            ViewBag.OrganisationId = new SelectList(db.Organisations, "Id", "Name", model.OrganisationId);
+            ViewBag.KitchenId = new SelectList(db.Kitchens, "Id", "Name", model.KitchenId);
+            return View(model);
+        }
+
+        private Restourant MapViewModel(RestourantViewModel model)
+        {
+            Restourant restourant = db.Restourants.Find(model.Id);
+            restourant.KitchenId = model.KitchenId;
+
+            restourant.Address.Street = model.Address.Street;
+            restourant.Address.City = model.Address.Street;
+            restourant.Address.Country = model.Address.Street;
+            restourant.Address.Neighborhood = model.Address.Street;
+            restourant.Address.Latitude = model.Address.Street;
+            restourant.Address.Longitude = model.Address.Street;
+
+            restourant.Name = model.Name;
+            restourant.Description = model.Description;
+            restourant.KitchenId = model.KitchenId;
+            restourant.UpdatedDate = DateTime.Now;
+            return restourant;
         }
 
         // GET: Companies/Restourants/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? restourantId)
         {
-            if (id == null)
+            if (restourantId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Restourant restourant = db.Restourants.Find(id);
+            Restourant restourant = db.Restourants.Find(restourantId);
             if (restourant == null)
             {
                 return HttpNotFound();
@@ -148,7 +223,7 @@ namespace GetEat.WebUI.Areas.Companies.Controllers
             Restourant restourant = db.Restourants.Find(id);
             db.Restourants.Remove(restourant);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { organisationId = restourant.OrganisationId });
         }
 
         protected override void Dispose(bool disposing)

@@ -69,6 +69,11 @@ namespace Domain
 
         }
 
+        public Organisation GetOrganisation(int userProgileId)
+        {
+            return _dataUnitOfWork.OrganisationRepository.GetOrganisation(userProgileId);
+        }
+
         public int GetUserProfileId(string aspId)
         {
             var userProfile = _dataUnitOfWork.UserProfileRepository.GetUserProfileByAspId(aspId);

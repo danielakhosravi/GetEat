@@ -10,5 +10,6 @@ namespace DomainModel.Repositories.Abstract
     public interface IOrganisationRepository
     {
         void Add(Organisation organisation);
+        Organisation GetOrganisation(int userProgileId);
     }
 }

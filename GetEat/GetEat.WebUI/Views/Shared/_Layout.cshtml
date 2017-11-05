@@ -52,12 +52,18 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a class="header-nav-link" href="~/Home/index">Home</a></li>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole(RoleNames.Customer))
+                    {
+                        <li>@Html.ActionLink("Organisation Profile", "Details", "Organisations", new { area = "Companies", id = SessionState.CurrentOrganisationId }, null)</li>
+                        <li>@Html.ActionLink("My Restourants", "Index", "Restourants", new { area = "Companies", organisationId = SessionState.CurrentOrganisationId }, null)</li>
+
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
                 @*<ul class="nav navbar-nav navbar-right">
-                    <li class="logForm"><a href="Registration.html">Sign in</a></li>
-                    <li class="logForm"><a href="Registration.html">Join</a></li>
-                </ul>*@
+                        <li class="logForm"><a href="Registration.html">Sign in</a></li>
+                        <li class="logForm"><a href="Registration.html">Join</a></li>
+                    </ul>*@
             </div>
         </div>
     </div>
@@ -71,14 +77,14 @@
         </footer>*@
     <footer>
         <div class="responsive navbar navbar-default navbar-fixed-bottom" role="navigation">
-               <div class="navbar-header">
-                   <ul class="nav navbar-nav footer">
-                       <li><a href="#">About us</a></li>
-                       <li><a href="#">Terms and conditions</a></li>
-                       <li><a href="#">Contact us</a></li>
-                   </ul>
-                </div>
-           
+            <div class="navbar-header">
+                <ul class="nav navbar-nav footer">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+
         </div>
     </footer>
     @*</div>*@

@@ -19,12 +19,22 @@ namespace DomainModel.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
+            context.Kitchens.Add(new Entities.Kitchen
+            {
+                Name = "Sushi",
+                Description = "Sushi",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            });
+            context.Kitchens.Add(new Entities.Kitchen
+            {
+                Name = "Burger",
+                Description = "Burger",
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            });
+
+            context.SaveChanges();
             //
         }
     }

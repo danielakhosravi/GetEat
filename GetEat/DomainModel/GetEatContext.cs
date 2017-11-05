@@ -13,6 +13,7 @@ namespace DomainModel
         public GetEatContext()
             : base("GeteatContext")
         {
+            Database.SetInitializer<GetEatContext>(new CreateDatabaseIfNotExists<GetEatContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

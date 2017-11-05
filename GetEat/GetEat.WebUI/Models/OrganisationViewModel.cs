@@ -7,6 +7,8 @@ namespace GetEat.WebUI.Models
 {
     public class OrganisationViewModel
     {
+        public int Id { get; set;
+        }
         public int OwnerProfileId { get; set; }
 
         public virtual UserProfileViewModel OwnerProfile { get; set; }
