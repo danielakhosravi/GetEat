@@ -4,62 +4,34 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Restourant</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Address.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address.Country)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Organisation.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Organisation.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PicGuidId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PicGuidId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-
-    </dl>
-</div>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+<div>
+    <button>Book this restourant</button>
+    <hr />
+    <img src="~/Content/images/rest2.jpg" />
+    <p>
+        @Model.Organisation.Name
+        @Model.Name
+        @Model.Address.Neighborhood
+        @Model.Address.Street
+        @Model.Address.Number
+        @Model.Address.City
+        @Model.Address.Country
+
+
+    </p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() {RestourantId = Model.Id  })
+    }
+
+    @Html.Action("Index", "Reviews", new { id = Model.Id })
+
+
+</div>
+

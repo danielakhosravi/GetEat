@@ -260,6 +260,9 @@
     <Content Include="Content\images\homePage.jpg" />
     <Content Include="Content\images\log.png" />
     <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\res.jpg" />
+    <Content Include="Content\images\rest2.jpg" />
+    <Content Include="Content\images\rest3.jpg" />
     <Content Include="Content\images\swback.png.jpg" />
     <Content Include="Content\images\Sweet.png.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -416,9 +419,6 @@
     <Content Include="Views\Search\Details.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
-    <Content Include="Views\Reviews\Delete.cshtml" />
-    <Content Include="Views\Reviews\Details.cshtml" />
-    <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
