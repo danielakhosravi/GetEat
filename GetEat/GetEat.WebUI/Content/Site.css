@@ -90,7 +90,8 @@ ul.nav.navbar-nav {
         height: 100%;
         width: 80%;
 }
-
+navbar::after {clear
+}
 .footer > li {
     padding-left: 20px;
 }
@@ -103,18 +104,19 @@ ul.nav.navbar-nav {
     position: relative;
     background-size: cover;
     width: 100%;
+    min-height:1200px;
 }
 
 
 .transperant {
     margin-top: 120px;
-    height: 400px;
+    height: 440px;
     background-color: rgba(0,0,0,0.5);
     color: #fff;
 }
 
 .center-content {
-    padding: 5% 0%;
+    padding: 2% 0px;
 }
 
 
@@ -205,7 +207,7 @@ div.searchbar {
 
 }
 @media (max-width: 768px) {
-
+ 
 div.searchbar {
         width: 430px;
         max-width: 100%;
@@ -243,7 +245,7 @@ label {
 .logbackground {
     padding: 0;
     width: 100%;
-    background-image: url('images/log.png');
+    background-image: url('images/logprofil.jpg');
     margin: auto;
     height: 900px;
     background-position: center;
@@ -262,7 +264,6 @@ span {
     text-decoration: none;
     text-decoration-line: none;
     font-size:1em;
- 
     font-weight: bold;
 }
 
@@ -294,4 +295,58 @@ span {
     background-color: #D6D3DC;
     margin-bottom: 0px;
     height:250px;
+}
+
+/*COMPANY PROFILE*/
+
+.dl-horizontal {padding:5px;
+}
+
+.profilhead { margin-top:50px;
+     
+}
+.anchorstyle >a {text-decoration:none;
+              color:#FE9D00;
+              font-weight:bolder;
+                 padding-left:25px;
+           
+}
+.anchorstyle>a:hover {
+        text-decoration: none;
+        color:#D6D3DC;
+        
+}
+
+.companibkgr {
+    background-image: url('images/bgsweet.png.jpg');
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+}
+.savebtn { color:#FE9D00;
+           font-weight:bolder;
+           width:120px;
+}
+textarea {min-width:430px;
+          border-radius:5px;
+          
+}
+th > img {width:50px;
+          height:50px; 
+}
+
+@media (max-width: 768px) {
+    div.companibkgr {
+        min-height: 1200px;
+    }
+    .transperant {min-height: 900px;
+    }
+    textarea {min-width:320px;
+              border-radius:5px;
+          
+}
 }

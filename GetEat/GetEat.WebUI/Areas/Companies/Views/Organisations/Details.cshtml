@@ -3,57 +3,71 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="companibkgr">
+    <div class="row">
+        <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content">
+            <div class="transperant">
+                <h2 class="center-content">Company details</h2>
+                <hr />
+                <dl class="dl-horizontal">
 
-<h2>Details</h2>
 
-<div>
-    <h4>Organisation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-      
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Phone)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fax)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fax)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Fax)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fax)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UpdatedDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UpdatedDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
+                </dl>
+                <ul class="list-inline">
+                    <li><h4>Make your profile changes</h4></li>
+                    <li class="anchorstyle"><a href="/Companies/Organisations/Edit/@Model.Id">here</a></li>
+                </ul>
 
-    </dl>
+
+
+            </div>
+
+        </section>
+        <aside class="col-md-2 col-md-pull-8"></aside>
+        <aside class="col-md-2"></aside>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/geteat/company.js"></script>
+}

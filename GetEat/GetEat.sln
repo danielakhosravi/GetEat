@@ -1,17 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B4CC1E20-B86A-425E-A7CE-BD9A18AEC929}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{54AF0AD6-B425-4711-B756-35905C656C87}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{FED84DBB-6E6A-41A9-9316-8D4836FA8C62}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{4AE04DFB-657C-49F3-8EE4-81D2A74ECE3D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Automation", "Automation", "{7A1F655E-64F2-42B1-91A6-349D5C8F7140}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{46D74DF4-1ACC-4B9B-8335-8EF1DCC78E82}"
 EndProject
@@ -20,10 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{AACD73A4-250B-48A9-B6BD-D4DCD9ABE85C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetEat.WebUI", "GetEat.WebUI\GetEat.WebUI.csproj", "{B067DE17-C9A8-46C6-B222-35F536180070}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetEat.WebUI.Tests", "GetEat.WebUI.Tests\GetEat.WebUI.Tests.csproj", "{E372B369-94C8-491E-8396-FEA8971CF254}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9754437A-945A-4959-84A5-1C1BB9AEC839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,20 +35,9 @@ Global
 		{B067DE17-C9A8-46C6-B222-35F536180070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B067DE17-C9A8-46C6-B222-35F536180070}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B067DE17-C9A8-46C6-B222-35F536180070}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E372B369-94C8-491E-8396-FEA8971CF254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E372B369-94C8-491E-8396-FEA8971CF254}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E372B369-94C8-491E-8396-FEA8971CF254}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E372B369-94C8-491E-8396-FEA8971CF254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{FED84DBB-6E6A-41A9-9316-8D4836FA8C62} = {54AF0AD6-B425-4711-B756-35905C656C87}
-		{4AE04DFB-657C-49F3-8EE4-81D2A74ECE3D} = {54AF0AD6-B425-4711-B756-35905C656C87}
-		{7A1F655E-64F2-42B1-91A6-349D5C8F7140} = {54AF0AD6-B425-4711-B756-35905C656C87}
-		{E372B369-94C8-491E-8396-FEA8971CF254} = {9754437A-945A-4959-84A5-1C1BB9AEC839}
-		{9754437A-945A-4959-84A5-1C1BB9AEC839} = {54AF0AD6-B425-4711-B756-35905C656C87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B6B0D68-ED3B-4CC1-AFFA-67AF114AA899}

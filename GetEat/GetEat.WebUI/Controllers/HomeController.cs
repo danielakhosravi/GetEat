@@ -26,5 +26,33 @@ namespace GetEat.WebUI.Controllers
 
             return View();
         }
+
+        public JsonResult GetKitchens()
+        {
+            var kitchens = new string[]  {
+                              "Indonesian",
+                              "Mexican",
+                              "Italian",
+                              "French",
+                              "Chinese",
+                              "Spanish",
+                              "Japanese",
+                              "Turkey",
+                              "Indian",
+                              "Iranian",
+                              "Bulgarian",
+                              "Sushi",
+                              "Seafood",
+                              "Fastfood",
+                              "Fish",
+                              "take away ",
+                              "Burger",
+                              "Pizza",
+                              "Steaks and Grill",
+                              "Seafood and Grill",
+                              "Meditarranean" };
+            return Json(kitchens,JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

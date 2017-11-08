@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace DomainModel.Entities
 
         public int OrganisationId { get; set; }
 
+        [DisplayName("Kitchen Types")]
         public int KitchenId { get; set; }
 
         [ForeignKey("KitchenId")]
