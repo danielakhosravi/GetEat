@@ -17,10 +17,12 @@
 
 
 /* Set width on the form input elements since they're 100% wide by default */
-html {overflow-x: hidden;
-      margin:0,auto;
-      padding:0;
+html {
+    overflow-x: hidden;
+    margin: 0,auto;
+    padding: 0;
 }
+
 input,
 select,
 textarea {
@@ -35,6 +37,7 @@ textarea {
     margin-right: 5px;
     margin-left: 5px;
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -45,7 +48,12 @@ body {
     font-size: 16px;
 }
 
-/*Navigation & Logo*/
+.row {
+    margin: 0px 0px;
+}
+
+/*Navigation & footer*/
+
 ul.nav.navbar-nav {
     padding-top: 1%;
     padding-bottom: 1%;
@@ -55,13 +63,18 @@ ul.nav.navbar-nav {
     color: #FE9D00;
 }
 
-    .navbar-default .navbar-nav > li > a:hover {
-        color:#DC8DC9;
+.navbar-default .navbar-nav > li > a:hover {
+        color: #DC8DC9;
+        
 }
-
+.navbar-default .navbar-nav > li > a:active, 
+.navbar-default .navbar-nav > li > a:focus {
+        color: #FE9D00;
+        text-decoration:none;
+        outline:none;
+}
 .header-nav-link {
     border-bottom: 1px solid;
-
 }
 
 .navbar-nav > li > a {
@@ -76,50 +89,44 @@ ul.nav.navbar-nav {
 .navbar-brand > img {
         height: 100%;
         width: 80%;
-    }
-
-
-/*NavigationFooter*/
+}
+navbar::after {clear
+}
 .footer > li {
     padding-left: 20px;
 }
 
 /*HOME PAGE Main Part*/
-.background {
-    padding: 0;
-    margin: 51px 0px 0px 0px;
+.screen-bgr {
     background-image: url('images/bgroung.png.jpg');
-    height: 800px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
-    display: block;
     width: 100%;
+    min-height:1200px;
 }
 
-.maincontainer {
-    padding-top: 70px;
-}
 
 .transperant {
-    margin-top: 8%;
-    height: 400px;
+    margin-top: 120px;
+    height: 440px;
     background-color: rgba(0,0,0,0.5);
-    color:#fff;
-    padding-top: 3%;
+    color: #fff;
 }
 
-div.ui-widget {
-    text-align: center;
+.center-content {
+    padding: 2% 0px;
 }
 
-    div.ui-widget > div {
-        display: inline-block;
-    }
 
 label {
     padding: 0 1%;
+}
+
+span {
+    color: #808080;
+    font-size: 1.5em;
 }
 
 span {
@@ -132,60 +139,87 @@ span {
     max-width: 90%;
     position: relative;
     background-color: #fff;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius:10px;
     color: #808080;
+    display:inline-block;
+
 }
 
-.btnAll {
-    color: #fff;
-    background-color: #FE9D00;
-    font-weight: bold;
-    width: 130px;
-}
 
-    .btnAll:hover {
-        color: #2E142C;
-        background-color: #DC8DC9;
-    }
+
+.btnAll:hover,
+.buttonGet:hover,
+.btnAll:focus, 
+.buttonGet:active,
+.btnAll:active, 
+.buttonGet:focus {
+    color: #2E142C;
+    background-color: #DC8DC9;
+    text-decoration:none;
+    border-color:none;
+    outline:none;
+}
 
 .buttonGet {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    margin-left: -5px;
     border: hidden;
-    max-width: 50%;
+    padding:0px 13px;
     position: relative;
     line-height: 3em;
     font-weight: bold;
+    color: #fff;
+    background-color: #FE9D00;
+       
+}
+.btnAll { float:right;
+         color: #fff;
+         background-color: #FE9D00;
+         font-weight: bold;
+         width: 130px;
 }
 
 .highlight {
     background-color: #fff;
     list-style-type: none;
-    max-width: 130px;
+    max-width: 160px;
     position: relative;
-    color:#fff;
+    color: #080808;
     cursor: pointer;
-    
 }
 
-@media only screen and (max-width: 740px) {
-    
-    div.searchbar {
+@media (max-width: 1024px) {
+div.searchbar {
+        max-width: 100%;
+        border-radius:10px;
+}
+.buttonGet {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 100%;
+        position: relative;
+        line-height: 3em;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+
+}
+@media (max-width: 768px) {
+ 
+div.searchbar {
         width: 430px;
         max-width: 100%;
         line-height: 3em;
-        border-radius: 5px;
-    }
-
-    h1 {
+        border-radius:10px;
+}
+ h1 {
         font-size: 1.5em;
-    }
-   
-
-    .buttonGet {
-        border-radius: 5px;
+}
+.buttonGet {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
         width: 430px;
         max-width: 100%;
         position: relative;
@@ -193,33 +227,25 @@ span {
         font-weight: bold;
         margin-left: 0px;
     }
-
-    input,
-    select,
-    textarea {
-        border:hidden;
-        width: 150px;
+ input,
+ select,
+ textarea {
+        border: hidden;
         max-width: 100%;
-        position: relative;
-        line-height: 2em;
+        line-height: 3em;
         font-size: 12px;
-    }  
-    
-    input:hover {
-        border:hidden;
-        
-    }
+}
 
-    label {
+label {
         padding: 0;
         font-size: 12px;
-    }
+}
 }
 /*LOG IN & REGISTER*/
 .logbackground {
     padding: 0;
     width: 100%;
-    background-image: url('images/log.png');
+    background-image: url('images/logprofil.jpg');
     margin: auto;
     height: 900px;
     background-position: center;
@@ -228,32 +254,99 @@ span {
     background-size: cover;
 }
 
-.headings {
-    text-align: right;
-    padding-right: 15%;
-}
-
 span {
     color: #FE9D00;
     font-size: small;
 }
-.linksaccount>a { color: #FE9D00;
-              
-}
-.linksaccount>a:hover { color: #DC8DC9;
-                      text-decoration:none;
-              
-}
-/*CONTACT*/
 
-.contactb {
+.linksaccount > a {
+    color: #FE9D00;
+    text-decoration: none;
+    text-decoration-line: none;
+    font-size:1em;
+    font-weight: bold;
+}
+
+.linksaccount > a:hover {
+        color: #DC8DC9;
+        text-decoration: none;
+        text-decoration-line: none;
+}
+
+
+/*/*CONTACT*/
+.contactbackgr {
+    background-image: url('images/bg.png.jpeg');
+    height:400px;
+    background-attachment:scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.header {background-color: rgba(0,0,0,0.5);
+         padding:10px;
+         color:#fff;
+         margin-top:320px;
+
+}
+
+.contactdetails {
+    background-color: #D6D3DC;
+    margin-bottom: 0px;
+    height:250px;
+}
+
+/*COMPANY PROFILE*/
+
+.dl-horizontal {padding:5px;
+}
+
+.profilhead { margin-top:50px;
+     
+}
+.anchorstyle >a {text-decoration:none;
+              color:#FE9D00;
+              font-weight:bolder;
+                 padding-left:25px;
+           
+}
+.anchorstyle>a:hover {
+        text-decoration: none;
+        color:#D6D3DC;
+        
+}
+
+.companibkgr {
+    background-image: url('images/bgsweet.png.jpg');
     padding: 0;
     width: 100%;
-    background-image: url('images/bg.png.jpeg');
     margin: auto;
-    height: 500px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
+}
+.savebtn { color:#FE9D00;
+           font-weight:bolder;
+           width:120px;
+}
+textarea {min-width:430px;
+          border-radius:5px;
+          
+}
+th > img {width:50px;
+          height:50px; 
+}
+
+@media (max-width: 768px) {
+    div.companibkgr {
+        min-height: 1200px;
+    }
+    .transperant {min-height: 900px;
+    }
+    textarea {min-width:320px;
+              border-radius:5px;
+          
+}
 }

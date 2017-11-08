@@ -4,42 +4,58 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="logbackground" >
+    <div class="container">
+        <div class="transperant">
+            <h3 class = "anchorstyle text-center center-content" >
+                @Html.ActionLink("Add New Restourant", "Create", new { organisationId = ViewBag.OrganisationId })
+            </h3>
+            <div class="container">
+                <table class="table  table-responsive">
+                    <tr class="">
+                        <th></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.KitchenId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UpdatedDate)
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Add New Restourant", "Create", new { organisationId = ViewBag.OrganisationId })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>
+                                <img src="~/Content/images/bgsweet.png.jpg" />
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Kitchen.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdatedDate)
+                            </td>
+                            <td class="anchorstyle">
+                                @Html.ActionLink("Edit", "Edit", new { restourantId = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { restourantId = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { restourantId = item.Id })
+                            </td>
+                        </tr>
+                    }
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { restourantId = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { restourantId = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { restourantId = item.Id })
-            </td>
-        </tr>
-    }
+                </table>
+            </div>
+            </div>
+    </div>
+</div>
+        @section scripts {
+            <script type="text/javascript" src="~/Scripts/geteat/company.js">
 
-</table>
-@section scripts {
-    <script type="text/javascript" src="~/Scripts/geteat/company.js">
-
-    </script>
-}
+            </script>
+        }

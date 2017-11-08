@@ -3,6 +3,7 @@
 }
 
 
+
 <div class="background">
     <div class="maincontainer">
         <div class="transperant">
@@ -24,16 +25,41 @@
                             <button class="dropdown-toggle buttonGet btnAll" type="submit" value="submit">Find GetEat</button>
                         </div>
                     </form>
-                </div>
 
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="screen-bgr">
+            <div class="row">
+                <div class="transperant">
+                  
+                    <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content">
+                        <h1>Find your GetEat place</h1>
+                        <p>Pick out your favourite cuisine and check out top-class restaurants.</p>
+                        @*<div class="row">*@
+                            @*<div class="ui-widget">*@
+                                <div class="responsive searchbar">
+                                    <label for="city">Find</label>
+                                    <input id="city" class="dropdown-toggle" placeholder="place, city">
+                                    <span>|</span>
+                                    <label for="cuisine">Kitchen</label>
+                                    <input id="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
+                                @*</div>*@
+                                <button class="dropdown-toggle buttonGet" type="submit" value="submit">Find GetEat</button>
+                            @*</div>*@
+                        </div>
+                       </section>
+                    <aside class="col-md-2 col-md-pull-8"></aside>
+                    <aside class="col-md-2"></aside>
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
 @section scripts {
     <script type="text/javascript" src="~/Scripts/geteat/home.js">
-      
+
     </script>
 }

@@ -1,37 +1,43 @@
 ﻿
 $(document).ready(function () {
-    
+
+    //Background height
+
+    $(window).on("load resize", function () {
+        $(".screen-bgr").css("height", window.innerHeight);
+    });
+
+
+
     // autocompelete
-    var availableTags = [
-      "Indonesian",
-      "Mexican",
-      "Italian",
-      "French",
-      "Chinese",
-      "Spanish",
-      "Japanese",
-      "Turkey",
-      "Indian",
-      "Iranian",
-      "Bulgarian",
-      "Sushi",
-      "Seafood",
-      "Fastfood",
-      "Fish",
-      "take away ",
-      "Burger",
-      "Pizza",
-      "Steaks and Grill",
-      "Seafood and Grill",
-      "Meditarranean",
-        ];
+    var availableTags;
+
+    $.ajax(
+        {
+            url: '/Home/GetKitchens',
+            method: 'GET'
+        })
+        .done(function (data) {
+            var availableTags;
+            $("#cuisine").autocomplete({
+                source: availableTags,
+                classes: {
+                    "ui-autocomplete": "highlight"
+                }
+            });
+        })
+        .fail(function (data) {
+            aler('fail');
+        });
+
     $("#cuisine").autocomplete({
         source: availableTags,
         classes: {
             "ui-autocomplete": "highlight"
         }
     });
-    var availableTags = [
+
+    var availableCities = [
       "Sofia",
       "Bourgas",
       "Varna",
@@ -55,27 +61,29 @@ $(document).ready(function () {
       "Kalofer",
       "Sopot"
     ];
+
     $("#city").autocomplete({
-        source: availableTags,
+        source: availableCities,
         classes: {
             "ui-autocomplete": "highlight"
         }
     });
 
-    $('ul li').each(function (i) {
-        $(this).addClass('linksaccount'); 
+
+    $("a#registrate").on('click', function () {
+        $('input[type = checkbox]').prop('checked', true)
+        $(this).css('color', '#DC8DC9');
+        $("a#logIn").css('color', '#FE9D00');
+    });
+    $("a#logIn").on('click', function () {
+        $('input[type = checkbox]').prop('checked', false)
+        $(this).css('color', '#DC8DC9');
+        $("a#registrate").css('color', '#FE9D00');
+
     });
 
- 
-    //$('#datetimepicker1').datetimepicker();
-    ////
-    //$('#timepicker2').timepicker({
-    //    minuteStep: 1,
-    //    template: 'modal',
-    //    appendWidgetTo: 'body',
-    //    showSeconds: true,
-    //    showMeridian: false,
-    //    defaultTime: false
-    //});
 
 });
+
+
+
