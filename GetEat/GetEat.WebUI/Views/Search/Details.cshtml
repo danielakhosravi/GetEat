@@ -1,0 +1,37 @@
+﻿@model DomainModel.Entities.Restourant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+<div>
+    <button>Book this restourant</button>
+    <hr />
+    <img src="~/Content/images/rest2.jpg" />
+    <p>
+        @Model.Organisation.Name
+        @Model.Name
+        @Model.Address.Neighborhood
+        @Model.Address.Street
+        @Model.Address.Number
+        @Model.Address.City
+        @Model.Address.Country
+
+
+    </p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() {RestourantId = Model.Id  })
+    }
+
+    @Html.Action("Index", "Reviews", new { id = Model.Id })
+
+
+</div>
+

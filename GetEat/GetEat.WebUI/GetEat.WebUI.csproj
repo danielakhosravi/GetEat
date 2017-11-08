@@ -225,7 +225,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RestourantsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\UserProfilesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,9 +260,15 @@
     <Content Include="Content\images\bgsweet.png.jpg" />
     <Content Include="Content\images\homePage.jpg" />
     <Content Include="Content\images\Logo.png" />
+
+    <Content Include="Content\images\res.jpg" />
+    <Content Include="Content\images\rest2.jpg" />
+    <Content Include="Content\images\rest3.jpg" />
+
     <Content Include="Content\images\logprofil.jpg" />
     <Content Include="Content\images\l_4518_vegetable.garden.salad.jpg" />
     <Content Include="Content\images\orange-gibne.jpg" />
+
     <Content Include="Content\images\swback.png.jpg" />
     <Content Include="Content\images\Sweet.png.jpg" />
     <Content Include="Content\images\Sweettttt.jpg" />
@@ -417,12 +423,9 @@
     <Content Include="Views\UserProfiles\Details.cshtml" />
     <Content Include="Views\UserProfiles\Edit.cshtml" />
     <Content Include="Views\UserProfiles\Index.cshtml" />
-    <Content Include="Views\Restourants\Details.cshtml" />
-    <Content Include="Views\Restourants\Index.cshtml" />
+    <Content Include="Views\Search\Details.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
-    <Content Include="Views\Reviews\Delete.cshtml" />
-    <Content Include="Views\Reviews\Details.cshtml" />
-    <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

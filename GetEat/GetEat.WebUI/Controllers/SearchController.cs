@@ -11,7 +11,7 @@ using DomainModel.Entities;
 
 namespace GetEat.WebUI.Controllers
 {
-    public class RestourantsController : Controller
+    public class SearchController : Controller
     {
         private GetEatContext db = new GetEatContext();
 
