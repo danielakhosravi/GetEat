@@ -12,16 +12,18 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="ui-widget">
-                        <div class="responsive searchbar">
-                            <label for="city">Find</label>
-                            <input id="city" class="dropdown-toggle" placeholder="place, city">
-                            <span>|</span>
-                             <label for="cuisine">Kitchen</label>
-                            <input id="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
+                    <form action="/Home/Search" method="post" >
+                        <div class="ui-widget">
+                            <div class="responsive searchbar">
+                                <label for="city">Find</label>
+                                <input id="city" name="city" class="dropdown-toggle" placeholder="place, city">
+                                <span>|</span>
+                                <label for="cuisine">Kitchen</label>
+                                <input id="cuisine" name="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
+                            </div>
+                            <button class="dropdown-toggle buttonGet btnAll" type="submit" value="submit">Find GetEat</button>
                         </div>
-                        <button class="dropdown-toggle buttonGet btnAll" type="submit" value="submit">Find GetEat</button>
-                    </div>
+                    </form>
                 </div>
 
             </div>

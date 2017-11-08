@@ -13,6 +13,12 @@ namespace GetEat.WebUI.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Search(string city, string cuisine)
+        {
+            return RedirectToAction("Index", "Search", new { area = "" });
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
