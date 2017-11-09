@@ -46,6 +46,7 @@ textarea {
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
+    background-color:lightgray;
 }
 
 .row {
@@ -59,16 +60,16 @@ ul.nav.navbar-nav {
     padding-bottom: 1%;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a, a {
     color: #FE9D00;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-default .navbar-nav > li > a:hover, a {
         color: #DC8DC9;
         
 }
-.navbar-default .navbar-nav > li > a:active, 
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:active,:focus, a
+ {
         color: #FE9D00;
         text-decoration:none;
         outline:none;
@@ -276,13 +277,13 @@ span {
 
 /*/*CONTACT*/
 .contactbackgr {
-    background-image: url('images/bg.png.jpeg');
-    height:400px;
-    background-attachment:scroll;
+    /*background-image: url('images/bg.png.jpeg');*/
+    background-image: url('images/homePage.jpg');
+    height: 400px;
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-   
 }
 .header {background-color: rgba(0,0,0,0.5);
          padding:10px;
@@ -350,3 +351,97 @@ th > img {width:50px;
           
 }
 }
+
+/*INDEX RESTOURANTS LIST*/
+/* Global */
+
+
+img { max-width:100%; }
+
+a {
+    -webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease; 
+	}
+    
+a:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+    filter: alpha(opacity=50); /* IE7 */
+    opacity: 0.5;
+    text-decoration: none;
+}
+a.restorantList {color:#808080;
+                
+}
+a.restorantList:hover, :active, :focus {
+                line-height:none;
+                cursor:pointer;
+
+}
+
+
+.thumbnails li {margin-bottom:5px;
+                
+}
+div.reiting >span {color:#808080;
+}
+.thumbnails li> .fff .caption { 
+    background:#fff !important; 
+    padding:10px;
+    
+}
+ul.thumbnails > div {background-color:#EEE;
+}
+
+/* Thumbnail Box */
+/*.caption h4 {
+    color: #444;
+}*/
+
+.caption p {  
+    color:#808080;
+}
+
+
+/*/*/* Carousel Control 
+/*.control-box {
+     width: 100%;
+}
+.carousel-control{
+    background: #666;
+    border: 0px;
+    border-radius: 0px;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 18px;
+    opacity: 0.5;
+    padding: 4px 10px 0px;
+    position: static;
+    height: 30px;
+    width: 15px;*/
+}*/*/
+
+
+
+/* Mobile Only */
+ }
+@media (max-width: 767px) {
+  
+      .page-header, .control-box {
+        text-align: center;
+    } 
+}
+@media (max-width: 479px) {
+    .caption {
+        word-break: break-all;
+    }
+}
+
+
+li { list-style-type:none;}
+
+::selection { background: #DC8DC9;; color: #FFFFFF; text-shadow: 0; }
+::-moz-selection { background: #DC8DC9;; color: #FFFFFF; }
