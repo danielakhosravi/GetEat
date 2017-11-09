@@ -90,8 +90,8 @@ ul.nav.navbar-nav {
         height: 100%;
         width: 80%;
 }
-navbar::after {clear
-}
+/*navbar::after {clear
+}*/
 .footer > li {
     padding-left: 20px;
 }

@@ -15,6 +15,7 @@
     <img src="~/Content/images/rest2.jpg" />
     <p>
         @Model.Organisation.Name
+        @Model.Description
         @Model.Name
         @Model.Address.Neighborhood
         @Model.Address.Street
@@ -28,6 +29,10 @@
     @if (User.Identity.IsAuthenticated)
     {
         @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() {RestourantId = Model.Id  })
+    }
+    else
+    {
+        <p>you have to log in to write review</p>
     }
 
     @Html.Action("Index", "Reviews", new { id = Model.Id })
