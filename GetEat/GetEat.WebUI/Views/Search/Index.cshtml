@@ -6,168 +6,181 @@
 
 <h2>Index</h2>
 <div class="container-fluid">
-   <div class="col-xs-12">
- 
-            @foreach (var item in Model)
-            {
-                <div class="carousel slide" id="myCarousel">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <ul class="thumbnails">
-                                <li class="col-sm-3 text-center">
-                                    <div class="fff thumbnail">
-                                        <div class="">
-                                            <a class="restorantList" href="#">
-                                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                                <img src="~/Content/images/res.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="reiting">
-                                            Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
-                                        </div>
-                                        <div class="caption">
-                                            <p>
-                                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                                @Html.DisplayFor(modelItem => item.Address.Street)
-                                                @Html.DisplayFor(modelItem => item.Address.Number)
-                                                @Html.DisplayFor(modelItem => item.Address.City)
-                                                @Html.DisplayFor(modelItem => item.Address.Country)
-                                            </p>
+    <div class="row">
 
-                                            <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
-                                            @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-sm-3 text-center">
-                                    <div class="fff thumbnail">
-                                        <div class="">
-                                            <a class="restorantList" href="#">
-                                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                                <img src="~/Content/images/res.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="reiting">
-                                            Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
-                                        </div>
-                                        <div class="caption">
-                                            <p>
-                                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                                @Html.DisplayFor(modelItem => item.Address.Street)
-                                                @Html.DisplayFor(modelItem => item.Address.Number)
-                                                @Html.DisplayFor(modelItem => item.Address.City)
-                                                @Html.DisplayFor(modelItem => item.Address.Country)
-                                            </p>
-
-                                            <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
-                                            @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-sm-3 text-center">
-                                    <div class="fff thumbnail">
-                                        <div class="">
-                                            <a class="restorantList" href="#">
-                                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                                <img src="~/Content/images/res.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="reiting">
-                                            Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
-                                        </div>
-                                        <div class="caption">
-                                            <p>
-                                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                                @Html.DisplayFor(modelItem => item.Address.Street)
-                                                @Html.DisplayFor(modelItem => item.Address.Number)
-                                                @Html.DisplayFor(modelItem => item.Address.City)
-                                                @Html.DisplayFor(modelItem => item.Address.Country)
-                                            </p>
-
-                                            <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
-                                            @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-sm-3 text-center">
-                                    <div class="fff thumbnail">
-                                        <div class="">
-                                            <a class="restorantList" href="#">
-                                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                                <img src="~/Content/images/res.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="reiting">
-                                            Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
-                                        </div>
-                                        <div class="caption">
-                                            <p>
-                                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                                @Html.DisplayFor(modelItem => item.Address.Street)
-                                                @Html.DisplayFor(modelItem => item.Address.Number)
-                                                @Html.DisplayFor(modelItem => item.Address.City)
-                                                @Html.DisplayFor(modelItem => item.Address.Country)
-                                            </p>
-
-                                            <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
-                                            @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                   
-               
-                    </div>
-
-
-                    @*<nav>
-                            <ul class="control-box pager">
-                                <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                                <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
-                            </ul>
-                        </nav>*@
-                    <!-- /.control-box -->
-
-                </div><!-- /#myCarousel -->
-            }
-
-        </div><!-- /.col-xs-12 -->
-    </div>
-    @*<section>
-            <table class="table">
-
+        <div class="profilbkgr center-content">
+            <div class="col-xs-12">
 
                 @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <img width="50" height="50" src="~/Content/images/res.jpg" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Organisation.Name)
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                            @Html.DisplayFor(modelItem => item.Address.Street)
-                            @Html.DisplayFor(modelItem => item.Address.Number)
-                            @Html.DisplayFor(modelItem => item.Address.City)
-                            @Html.DisplayFor(modelItem => item.Address.Country)
-                        </td>
-                        <td>
-                            @item.Reviews.Sum(x => x.Score)
-                        </td>
-                        <td>
-                            @Html.ActionLink("see more", "Details", new { id = item.Id }) |
-                        </td>
+            {
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <ul class="thumbnails">
+                                    <li class="col-sm-3 text-center">
+                                        <div class="fff thumbnail">
+                                            <div class="">
+                                                <a class="restorantList" href="#">
+                                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    <img src="~/Content/images/res.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div id="rating">
+                                                <label class="font">Rating</label>
+                                                <span class="raiting-star">★</span>
+                                                <span class="raiting-star">★</span>
+                                                <span class="raiting-star">★</span>
+                                                <span class="raiting-star">★</span>
+                                                <span class="raiting-star">★</span>
 
-                    </tr>
+                                                @item.Reviews.Sum(x => x.Score)
+                                            </div>
+                                            <div class="caption">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                                </p>
+
+                                                <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
+                                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 text-center">
+                                        <div class="fff thumbnail">
+                                            <div class="">
+                                                <a class="restorantList" href="#">
+                                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    <img src="~/Content/images/res.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="reiting">
+                                                Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
+                                            </div>
+                                            <div class="caption">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                                </p>
+
+                                                <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
+                                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 text-center">
+                                        <div class="fff thumbnail">
+                                            <div class="">
+                                                <a class="restorantList" href="#">
+                                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    <img src="~/Content/images/res.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="reiting">
+                                                Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
+                                            </div>
+                                            <div class="caption">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                                </p>
+
+                                                <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
+                                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 text-center">
+                                        <div class="fff thumbnail">
+                                            <div class="">
+                                                <a class="restorantList" href="#">
+                                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    <img src="~/Content/images/res.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="reiting">
+                                                Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
+                                            </div>
+                                            <div class="caption">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                                </p>
+
+                                                <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
+                                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+
+                        @*<nav>
+                                <ul class="control-box pager">
+                                    <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                                    <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+                                </ul>
+                            </nav>*@
+                        <!-- /.control-box -->
+
+                    </div><!-- /#myCarousel -->
                 }
 
-            </table>
-        </section>*@
+            </div><!-- /.col-xs-12 -->
+        </div>
+    </div>
+</div>   
+@*<script src="~/Scripts/geteat/company.js"></script>*@
+        @*<section>
+                <table class="table">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img width="50" height="50" src="~/Content/images/res.jpg" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                @Html.DisplayFor(modelItem => item.Address.Street)
+                                @Html.DisplayFor(modelItem => item.Address.Number)
+                                @Html.DisplayFor(modelItem => item.Address.City)
+                                @Html.DisplayFor(modelItem => item.Address.Country)
+                            </td>
+                            <td>
+                                @item.Reviews.Sum(x => x.Score)
+                            </td>
+                            <td>
+                                @Html.ActionLink("see more", "Details", new { id = item.Id }) |
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+            </section>*@

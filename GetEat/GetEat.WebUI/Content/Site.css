@@ -46,7 +46,7 @@ textarea {
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    background-color:lightgray;
+    
 }
 
 .row {
@@ -65,12 +65,12 @@ ul.nav.navbar-nav {
 }
 
 .navbar-default .navbar-nav > li > a:hover, a {
-        color: #DC8DC9;
+        color: #6284B4;
         
 }
 .navbar-default .navbar-nav > li > a:active,:focus, a
  {
-        color: #FE9D00;
+          color:#FE9D00;
         text-decoration:none;
         outline:none;
 }
@@ -154,8 +154,8 @@ span {
 .buttonGet:active,
 .btnAll:active, 
 .buttonGet:focus {
-    color: #2E142C;
-    background-color: #DC8DC9;
+    color:#6284B4;
+    /*background-color: #DC8DC9;*/
     text-decoration:none;
     border-color:none;
     outline:none;
@@ -269,7 +269,7 @@ span {
 }
 
 .linksaccount > a:hover {
-        color: #DC8DC9;
+        color:#6284B4;
         text-decoration: none;
         text-decoration-line: none;
 }
@@ -307,14 +307,14 @@ span {
      
 }
 .anchorstyle >a {text-decoration:none;
-              color:#FE9D00;
-              font-weight:bolder;
+                 color:#FE9D00;
+                 font-weight:bolder;
                  padding-left:25px;
            
 }
 .anchorstyle>a:hover {
         text-decoration: none;
-        color:#D6D3DC;
+        color:#6284B4;
         
 }
 
@@ -443,5 +443,82 @@ ul.thumbnails > div {background-color:#EEE;
 
 li { list-style-type:none;}
 
-::selection { background: #DC8DC9;; color: #FFFFFF; text-shadow: 0; }
-::-moz-selection { background: #DC8DC9;; color: #FFFFFF; }
+/*::selection { background: #DC8DC9;; color: #FFFFFF; text-shadow: 0; }*/
+/*::-moz-selection { background: #DC8DC9;; color: #FFFFFF; }*/
+
+ /*RATING STARS*/
+
+        #rating {
+            /*text-align: center;*/
+            perspective: 250px;
+            /*position: absolute;*/
+            top: 40%;
+            width: 100%;
+        }
+
+        .raiting-star  {
+            cursor: pointer;
+            font-size: 30px;
+            color:#808080;
+            opacity: .5;
+            transition: all 150ms;
+            display: inline-block;
+            transform: rotateX(45deg);
+            transform-origin: center bottom;
+        }
+
+         .reiting-hover {
+                color: #ff0;
+                opacity: 1;
+                transform: rotateX(0deg);
+                text-shadow: 0 0 30px #ffc;
+            }
+
+
+         .ratingclick {
+            color: #ff0;
+            opacity: 1;
+            transform: rotateX(0deg);
+            text-shadow: 0 0 30px #ffc;
+        }
+.font {font-size: 15px;
+       color:#808080;
+}
+/*PROFIL*/
+.profilbkgr {
+  
+    background-image: url('images/logprofil.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    width: 100%;
+    min-height: 1000px;
+}
+.book {width: 90%;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #FE9D00;
+    text-decoration: none;
+    background-color: #FE9D00;
+    color: #fff;
+    border-radius: 15px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    top: 50px;
+    border-color: #fff;
+    
+}
+    .book:hover {
+        color: #6284B;
+    }
+    
