@@ -5,8 +5,17 @@ $(document).ready(function () {
 
     $(window).on("load resize", function () {
         $(".companibkgr", ".screen-bgr").css("height", window.innerHeight);
-    });
 
+
+       
+    });
+    
+    $("li.raiting-star").on("click", function () {
+        $("li.raiting-star").removeClass(".active");
+        $("li.raiting-star").removeClass(".secondary-activ");
+        $("this").addClass(".active");
+        $("this").prevAll().addClass(".secondary-active");
+    });
  
 //    $('.carousel').carousel({
 //        interval: 6000
@@ -19,43 +28,45 @@ $(document).ready(function () {
   //reiting-hover=.hover
     //reiting-chousen =.ratingclick
 
-    var stars;
-    var vouted;
-    $(".raiting-star").click(function () {
-        $(".raiting-star").removeClass(".reiting-hover");
-        $(".raiting-star").removeClass(".ratingclick");
+   
 
-        $(this).addClass(".ratingclick");
-        $(this).prevAll().addClass(".ratingclick");
+//    var stars;
+//    var vouted;
+//    $(".raiting-star").click(function () {
+//        $(".raiting-star").removeClass(".reiting-hover");
+//        $(".raiting-star").removeClass(".ratingclick");
 
-        stars = $(this).index();
-        vouted = $($("raiting-star").get(stars));
+//        $(this).addClass(".ratingclick");
+//        $(this).prevAll().addClass(".ratingclick");
 
-        $(vouted).data("vouted", true);
+//        stars = $(this).index();
+//        vouted = $($("raiting-star").get(stars));
 
-    });
+//        $(vouted).data("vouted", true);
 
-    $(".raiting-star").hover(function () {
-        $(".raiting-star").removeClass(".reiting-hover");
-        $(".raiting-star").removeClass(".ratingclick");
+//    });
 
-        $(this).addClass(".reiting-hover");
-        $(this).prevAll().addClass(".reiting-hover");
-    });
+//    $(".raiting-star").hover(function () {
+//        $(".raiting-star").removeClass(".reiting-hover");
+//        $(".raiting-star").removeClass(".ratingclick");
 
-    $(".raiting-star").mouseout(function ()   {
+//        $(this).addClass(".reiting-hover");
+//        $(this).prevAll().addClass(".reiting-hover");
+//    });
 
-        $(".raiting-star").removeClass(".reiting-hover")
-        {
-            if ($(vouted).data("vouted")) {
-                $(vouted).addClass("ratingcliked");
-                $(vouted).prevAll().addClass("ratingcliked");
-            }
+//    $(".raiting-star").mouseout(function ()   {
 
-        }
+//        $(".raiting-star").removeClass(".reiting-hover")
+//        {
+//            if ($(vouted).data("vouted")) {
+//                $(vouted).addClass("ratingcliked");
+//                $(vouted).prevAll().addClass("ratingcliked");
+//            }
 
-    });
-});
+//        }
+
+//    });
+//});
 
 
 
@@ -74,5 +85,5 @@ $(document).ready(function () {
 //  }
 //)
 
-//});
+});
 

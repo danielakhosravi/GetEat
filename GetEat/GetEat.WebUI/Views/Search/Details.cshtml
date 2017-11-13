@@ -5,15 +5,16 @@
 }
 <div class="container-fluid">
     <div class="profilbkgr center-content">
-        <div class="row center-content">
+       
             <div>
                 <button class="book">Book this restourant</button>
                 @*<p>
                          @Html.ActionLink("Back to List", "Index")
                     </p>*@
             </div>
-            <div class="transperant">
-                <div class="col-md-6">
+        <div class="row center-content">
+            <div class="">
+                <div class="col-md-6 transperant">
                     <p>
                         @Model.Organisation.Name
                         @Model.Description
@@ -26,26 +27,36 @@
                     </p>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 transperant">
                     <p>  img galeri</p>
                     <img src="~/Content/images/rest2.jpg" />
                 </div>
             </div>
-                <div class="row">
-                    @if (User.Identity.IsAuthenticated)
-            {
-                        @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
-                    }
-                    else
-                    {
-                        <p>you have to log in to write review</p>
-                    }
-
-                    @Html.Action("Index", "Reviews", new { id = Model.Id })
-                </div>
+        </div>
+                  <div class="container">
+                        <div class="row">
+                            <div col class="comment-box">
+                                
+                                <h4 class="title">John Doe</h4>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
+                    </div>
+                  
+                
             </div>
     
     </div>
+@if (User.Identity.IsAuthenticated)
+            {
+    @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
+}
+else
+{
+    <p>you have to log in to write review</p>
+}
+
+@Html.Action("Index", "Reviews", new { id = Model.Id })
 </div>
 
 

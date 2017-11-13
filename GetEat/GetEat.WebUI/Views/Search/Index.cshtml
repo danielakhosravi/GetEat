@@ -19,7 +19,7 @@
                                 <ul class="thumbnails">
                                     <li class="col-sm-3 text-center">
                                         <div class="fff thumbnail">
-                                            <div class="">
+                                            <div>
                                                 <a class="restorantList" href="#">
                                                     @Html.DisplayFor(modelItem => item.Organisation.Name)
                                                     @Html.DisplayFor(modelItem => item.Name)
@@ -27,14 +27,41 @@
                                                 </a>
                                             </div>
                                             <div id="rating">
-                                                <label class="font">Rating</label>
-                                                <span class="raiting-star">★</span>
-                                                <span class="raiting-star">★</span>
-                                                <span class="raiting-star">★</span>
-                                                <span class="raiting-star">★</span>
-                                                <span class="raiting-star">★</span>
+                                                <ul class="stars">
+                                                    Rating
+                                                    <li class="raiting-star">★</li>
+                                                    <li class="raiting-star">★</li>
+                                                    <li class="raiting-star">★</li>
+                                                    <li class="raiting-star">★</li>
+                                                    <li class="raiting-star">★</li>
+                                                    @item.Reviews.Sum(x => x.Score)
+                                                </ul>
+                                            </div>
+                                            <div class="caption">
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                                </p>
 
-                                                @item.Reviews.Sum(x => x.Score)
+                                                <a class="btn btn-mini" href="/Search/Details/2">» See More</a>
+                                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 text-center">
+                                        <div class="fff thumbnail">
+                                            <div class="">
+                                                <a class="restorantList" href="#">
+                                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    <img src="~/Content/images/res.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="reiting">
+                                                Reiting <span>@item.Reviews.Sum(x => x.Score)</span>
                                             </div>
                                             <div class="caption">
                                                 <p>
@@ -149,38 +176,45 @@
             </div><!-- /.col-xs-12 -->
         </div>
     </div>
-</div>   
-@*<script src="~/Scripts/geteat/company.js"></script>*@
-        @*<section>
-                <table class="table">
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/geteat/company.js">
+
+    </script>
+}
 
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <img width="50" height="50" src="~/Content/images/res.jpg" />
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                @Html.DisplayFor(modelItem => item.Address.Street)
-                                @Html.DisplayFor(modelItem => item.Address.Number)
-                                @Html.DisplayFor(modelItem => item.Address.City)
-                                @Html.DisplayFor(modelItem => item.Address.Country)
-                            </td>
-                            <td>
-                                @item.Reviews.Sum(x => x.Score)
-                            </td>
-                            <td>
-                                @Html.ActionLink("see more", "Details", new { id = item.Id }) |
-                            </td>
+@*<section>
+        <table class="table">
 
-                        </tr>
-                    }
 
-                </table>
-            </section>*@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img width="50" height="50" src="~/Content/images/res.jpg" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Organisation.Name)
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                        @Html.DisplayFor(modelItem => item.Address.Street)
+                        @Html.DisplayFor(modelItem => item.Address.Number)
+                        @Html.DisplayFor(modelItem => item.Address.City)
+                        @Html.DisplayFor(modelItem => item.Address.Country)
+                    </td>
+                    <td>
+                        @item.Reviews.Sum(x => x.Score)
+                    </td>
+                    <td>
+                        @Html.ActionLink("see more", "Details", new { id = item.Id }) |
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </section>*@
