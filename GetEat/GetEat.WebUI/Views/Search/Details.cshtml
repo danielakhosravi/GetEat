@@ -5,58 +5,104 @@
 }
 <div class="container-fluid">
     <div class="profilbkgr center-content">
-       
+        <div class="container">
             <div>
                 <button class="book">Book this restourant</button>
-                @*<p>
-                         @Html.ActionLink("Back to List", "Index")
-                    </p>*@
+                @*<p>@Html.ActionLink("Back to List", "Index")</p>*@
             </div>
-        <div class="row center-content">
-            <div class="">
-                <div class="col-md-6 transperant">
-                    <p>
-                        @Model.Organisation.Name
-                        @Model.Description
-                        @Model.Name
-                        @Model.Address.Neighborhood
-                        @Model.Address.Street
-                        @Model.Address.Number
-                        @Model.Address.City
-                        @Model.Address.Country
-                    </p>
-                </div>
 
-                <div class="col-md-6 transperant">
+            <div class="row">
+                <div class="col-md-6 wrap">
+                    <div class="review">
+                        <div class="restorant">
+                            <div class="text-center">
+                                <h2>Raffy Bar & Gelato Park</h2>
+                                <span class="info">бул. Цариградско шосе 111 В, Sofia Tech Park, Колайдер Активити Център</span>
+                                <div class="form-group">
+                                    <ul class="stars">
+                                        <span>РЕЙТИНГ</span>
+                                        <li class="raiting-star">★</li>
+                                        <li class="raiting-star">★</li>
+                                        <li class="raiting-star">★</li>
+                                        <li class="raiting-star">★</li>
+                                        <li class="raiting-star">★</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="middle">
+                                <span class="glyphicon glyphicon-map-marker info">
+                                    <strong> Район:</strong> Полигона, Център, Симеоново
+                                </span>
+
+                                <span class="glyphicon glyphicon-cutlery info"><strong> Кухня:</strong> Суши, Рибна, Пица, Италианска и Интернационална</span>
+                            </div>
+                        </div>
+                        <h4 class="text-center">За ресторанта</h4>
+                        <article>
+                            Заповядайте в "RAFFY PARK BAR" София, който се намира на адрес София, Бул. Цариградско Шосе 111 В, София Тех Парк, сграда Уолтопия. Заведението има капацитет от 120 места и е един от ресторантите в град София, който предлага следните типове кухня: Българска, Европейска, Италианска, Средиземноморска , както и следните услуги и екстри: Wi Fi, Паркинг, Безкасово плащане, Климатик, Градина/ тераса, Обедно меню, Промоции.
+                            Рeсторанта е подходящ за организиране и празнуване на специални събития - сватби, кръщенета, рождени дни, детски партита, фирмени партита, частни партита.
+                        </article>
+                        @*<p>
+                                @Model.Organisation.Name
+                                @Model.Description
+                                @Model.Name
+                                @Model.Address.Neighborhood
+                                @Model.Address.Street
+                                @Model.Address.Number
+                                @Model.Address.City
+                                @Model.Address.Country
+                            </p>*@
+                    </div>
+                </div>
+                <div class="col-md-6 wrap">
                     <p>  img galeri</p>
                     <img src="~/Content/images/rest2.jpg" />
                 </div>
+
             </div>
-        </div>
-                  <div class="container">
-                        <div class="row">
-                            <div col class="comment-box">
-                                
-                                <h4 class="title">John Doe</h4>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </div>
+
+            <div class="row col">
+                <div class="comment-box">
+                    <h3>Coments</h3>
+
+                    <div class="status-upload">
+                        <form class="">
+                            <textarea class="help-block" placeholder="You can share your impression here?"></textarea>
+                            <button type="submit" class="btn btn-share help-block">Share</button>
+                        </form>
+                    </div>
+
+
+                    <div class="list-coments">
+                        <div class="help-block">
+                            <img class="img-circle user-img" src="~/Content/images/person-coment.jpg" />
+                            <span class="info">
+                                Username<span>
+                                    <span class="info">yesterrday at 5:00 am<span>
+                        </div>
+                        <div class="help-block">
+
                         </div>
                     </div>
-                  
-                
-            </div>
-    
-    </div>
-@if (User.Identity.IsAuthenticated)
-            {
-    @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
-}
-else
-{
-    <p>you have to log in to write review</p>
-}
 
-@Html.Action("Index", "Reviews", new { id = Model.Id })
+
+                    @*@if (User.Identity.IsAuthenticated)
+                        {
+                                    @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
+                                }
+                                else
+                                {
+                                    <p>you have to log in to write review</p>
+                                }
+
+                                @Html.Action("Index", "Reviews", new { id = Model.Id })*@
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/geteat/home.js"></script>
+}

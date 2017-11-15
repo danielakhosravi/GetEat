@@ -17,6 +17,14 @@
 
 
 /* Set width on the form input elements since they're 100% wide by default */
+body {
+    font-family: 'Graphik Regular';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 16px;
+    
+}
 html {
     overflow-x: hidden;
     margin: 0,auto;
@@ -43,11 +51,7 @@ textarea {
     margin: 0;
 }
 
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    
-}
+
 
 .row {
     margin: 0px 0px;
@@ -58,6 +62,7 @@ body {
 ul.nav.navbar-nav {
     padding-top: 1%;
     padding-bottom: 1%;
+
 }
 
 .navbar-default .navbar-nav > li > a, a {
@@ -86,14 +91,22 @@ ul.nav.navbar-nav {
 }
 
 .navbar-brand > img {
-        height: 100%;
-        width: 80%;
+        height:60%;
+        width: 60%;
+        padding:10px;
+}
+.navbar-right {
+    float: right !important;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 /*navbar::after {clear
 }*/
 .footer > li {
     padding-left: 20px;
-}
+    padding-bottom:10px;
+   
+    }
 
 /*HOME PAGE Main Part*/
 .screen-bgr {
@@ -124,14 +137,11 @@ label {
 }
 
 span {
-    color: #808080;
+    color:#FE9D00;
     font-size: 1.5em;
 }
 
-span {
-    color: #808080;
-    font-size: 1.5em;
-}
+
 
 .searchbar {
     width: 650px;
@@ -255,8 +265,9 @@ label {
 }
 
 span {
-    color: #FE9D00;
+    
     font-size: small;
+    /*color: #FE9D00;*/
 }
 
 .linksaccount > a {
@@ -500,7 +511,7 @@ li { list-style-type:none;}
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
     -ms-transform: translate(-50%);
-    top: 50px;
+    top: 100px;
     border-color: #fff;
     
 }
@@ -508,9 +519,7 @@ li { list-style-type:none;}
         color: #6284B4;
         
     }
-    /* CSS Test begin */
-
-/* CSS Test end */
+  
 
 .comment-box {
     border: 1px solid #ddd;
@@ -518,25 +527,59 @@ li { list-style-type:none;}
     text-align: justify;
     background-color: rgba(0,0,0,0.5);
     color: #fff;
-}
-.comment-box .title {
-    background-color: #FE9D00;
-    border-bottom: 1px solid #ddd;
-    padding: 7px 15px;
-    position: relative;
-    margin: -10px -15px 10px;
-}
-.comment-box .title:before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    background-color: #FE9D00;
-    border: 1px solid #ddd;
-    border-width: 1px 0 0 1px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 10px;
-    left: -6px;
+    margin:15px;
 }
 
+
+.wrap { margin-top: 120px;
+        margin-bottom:10px;
+     
+}
+.review {
+    background-color:#fff;
+    color:#080808;
+    padding:10px;
+    font-size:0.6em;
+    margin-right:8px;
+}
+.restorant {
+    border-bottom:1px solid #ddd;
+    padding:10px;
+
+}
+.middle {margin:0 auto;
+         width: 250px;
+}
+.info {
+    color: #080808;
+}
+
+/*Part Coment*/
+.btn-share {
+   border: 1px solid #FE9D00;
+   text-decoration: none;
+   background-color: #FE9D00;
+   color: #fff;
+   line-height:20px;
+   font-size: 18px;
+   letter-spacing: 2px;
+   position: relative;
+   z-index: 10;
+   border-color: #fff;
+   outline:none;
+}
+.btn-share:hover,
+:focus, 
+:active {
+    color:#6284B4;
+    text-decoration:none;
+    border-color:none;
+    outline:none;
+}
+.list-coments {
+    padding-top:10px;
+    border-bottom:1px solid #ddd;
+}
+.user-img {max-height:62px;
+           max-width:62px;
+}

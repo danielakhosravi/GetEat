@@ -3,9 +3,7 @@ $(document).ready(function () {
 
     //Background height
 
-    $(window).on("load resize", function () {
-        $(".screen-bgr").css("height", window.innerHeight);
-    });
+   
 
 
 
@@ -83,7 +81,24 @@ $(document).ready(function () {
     });
 
 
+    $(".raiting-star").on("click", function () {
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        $(this).nextAll().removeClass('active');
+        $("#score").val($(this).index() + 1);
+    });
+  
+    $("[data-toggle=tooltip]").tooltip();
+
 });
+
+$(window).on("load resize", function () {
+    $(".screen-bgr").css("height", window.innerHeight);
+});
+
+
+
 
 
 
