@@ -105,8 +105,16 @@ ul.nav.navbar-nav {
 .footer > li {
     padding-left: 20px;
     padding-bottom:10px;
-   
     }
+ul.nan.navbar-nav.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+}
+
 
 /*HOME PAGE Main Part*/
 .screen-bgr {
@@ -157,12 +165,9 @@ span {
 
 
 
-.btnAll:hover,
-.buttonGet:hover,
-.btnAll:focus, 
-.buttonGet:active,
-.btnAll:active, 
-.buttonGet:focus {
+.btnAll:hover,:focus,:active,
+.buttonGet:hover,:focus,:active
+ {
     color:#6284B4;
     text-decoration:none;
     border-color:none;
@@ -257,11 +262,11 @@ label {
     width: 100%;
     background-image: url('images/logprofil.jpg');
     margin: auto;
-    height: 900px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
+    min-height:1000px;
 }
 
 span {
@@ -366,96 +371,48 @@ th > img {width:50px;
 /* Global */
 
 
-img { max-width:100%; }
+img { 
+     max-width:100%;
+    
+}
 
-a {
-    -webkit-transition: all 150ms ease;
-	-moz-transition: all 150ms ease;
-	-ms-transition: all 150ms ease;
-	-o-transition: all 150ms ease;
-	transition: all 150ms ease; 
+a.restorantList {color:#808080;
+                 text-transform:uppercase;
+    
 	}
     
 a:hover {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
-    filter: alpha(opacity=50); /* IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";  /*IE 8*/ 
+    filter: alpha(opacity=50);  /*IE7*/ 
     opacity: 0.5;
     text-decoration: none;
 }
 
 
-
-.thumbnails li {margin-bottom:5px;
-                
+.col-md-3 { width:240px;
+            height:340px;
+            margin:5px;
+   
 }
-div.reiting >span {color:#808080;
-}
-.thumbnails li> .fff .caption { 
-    background:#fff !important; 
-    padding:10px;
-    
-}
-ul.thumbnails > div {background-color:#EEE;
-}
-
-/* Thumbnail Box */
-/*.caption h4 {
-    color: #444;
-}*/
 
 .caption p {  
     color:#808080;
+    text-transform:none;
 }
-.col-xs-12 {margin-bottom:3%;
+/*POP UP BOX*/
+.timepicker, .datepicker, .selectpicker{max-width:360px;
 }
 
-/*/*/* Carousel Control 
-/*.control-box {
-     width: 100%;
+
+.holder-input {
+    padding-left: 85px;
 }
-.carousel-control{
-    background: #666;
-    border: 0px;
-    border-radius: 0px;
-    display: inline-block;
-    font-size: 34px;
-    font-weight: 200;
-    line-height: 18px;
-    opacity: 0.5;
-    padding: 4px 10px 0px;
-    position: static;
-    height: 30px;
-    width: 15px;*/
-}*/*/
+.modal-footer {text-align:center;
+}           
 
 
 
-/* Mobile Only */
- }
-@media (max-width: 767px) {
-  
-      .page-header, .control-box {
-        text-align: center;
-    
-}
-    
 
-}
-@media (max-width: 479px) {
-    .caption {
-        word-break: break-all;
-    }
-}
-@media (min-width: 768px)
-{li.col-sm-3 {
-    width:20%;
-}}
-
-
-li { list-style-type:none;}
-
-/*::selection { background: #DC8DC9;; color: #FFFFFF; text-shadow: 0; }*/
-/*::-moz-selection { background: #DC8DC9;; color: #FFFFFF; }*/
 
  /*RATING STARS*/
 .stars {padding:0;
@@ -478,20 +435,8 @@ li { list-style-type:none;}
                
     }
 
-
-
-
 /*PROFIL*/
-.profilbkgr {
-  
-    background-image: url('images/logprofil.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    background-size: cover;
-    width: 100%;
-    min-height: 1000px;
-}
+
 .book {width: 90%;
     height: 40px;
     margin: 0 auto;
@@ -522,11 +467,11 @@ li { list-style-type:none;}
   
 
 .comment-box {
-    border: 1px solid #ddd;
+   
     padding: 10px 15px;
     text-align: justify;
     background-color: rgba(0,0,0,0.5);
-    color: #fff;
+    color:#fff;
     margin:15px;
 }
 
@@ -539,7 +484,7 @@ li { list-style-type:none;}
     background-color:#fff;
     color:#080808;
     padding:10px;
-    font-size:0.6em;
+    font-size:0.8em;
     margin-right:8px;
 }
 .restorant {
@@ -567,6 +512,7 @@ li { list-style-type:none;}
    z-index: 10;
    border-color: #fff;
    outline:none;
+ margin-bottom:10px;
 }
 .btn-share:hover,
 :focus, 
@@ -577,9 +523,17 @@ li { list-style-type:none;}
     outline:none;
 }
 .list-coments {
-    padding-top:10px;
+  
     border-bottom:1px solid #ddd;
+    border-top:1px solid #ddd;
+    color:#fff;
 }
 .user-img {max-height:62px;
            max-width:62px;
+}
+.user-opinion {
+    color:#fff;
+    font-size: 0.8em;
+    padding-top:5px;
+      
 }
