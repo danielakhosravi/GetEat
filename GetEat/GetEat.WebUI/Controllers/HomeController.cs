@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace GetEat.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly GetEatContext getEatContext;
+        public HomeController()
+        {
+            getEatContext = new GetEatContext();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -35,29 +42,7 @@ namespace GetEat.WebUI.Controllers
 
         public JsonResult GetKitchens()
         {
-            var kitchens = new string[]  {
-                              "Indonesian",
-                              "Mexican",
-                              "Italian",
-                              "French",
-                              "Chinese",
-                              "Spanish",
-                              "Japanese",
-                              "Turkey",
-                              "Indian",
-                              "Iranian",
-                              "Bulgarian",
-                              "Sushi",
-                              "Seafood",
-                              "Fastfood",
-                              "Fish",
-                              "take away ",
-                              "Burger",
-                              "Pizza",
-                              "Steaks and Grill",
-                              "Seafood and Grill",
-                              "Meditarranean" };
-            return Json(kitchens,JsonRequestBehavior.AllowGet);
+            return Json(getEatContext.Kitchens.Select(x => x.Name).ToList(), JsonRequestBehavior.AllowGet);
         }
 
     }

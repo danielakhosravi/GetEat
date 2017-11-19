@@ -35,7 +35,7 @@ namespace GetEat.WebUI.Controllers
                 Comment = x.Comment,
                 Score = x.Score,
                 WrittenDate = x.CreatedDate
-            }).ToList();
+            }).OrderByDescending(x=>x.WrittenDate).ToList();
 
             return PartialView(vm);
         }

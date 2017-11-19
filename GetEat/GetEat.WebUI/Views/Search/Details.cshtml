@@ -84,25 +84,25 @@
                                         <button type="button" class="book" data-toggle="modal" data-target="#myModal">book table here</button>
                                     </div>
 
-                                    @*<div id="rating">
-                                            <ul class="stars">
-                                                @{
-                                                    var score = item.Reviews.Sum(x => x.Score);
-                                                }
-                                                @for (int i = 1; i <= 5; i++)
+                                    <div id="rating">
+                                        <ul class="stars">
+                                            @{
+                                                var score = Model.Reviews.Count > 0 ? Model.Reviews.Average(x => x.Score) : 0;
+                                            }
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (score >= i)
                                                 {
-                                                    if (score >= i)
-                                                    {
-                                                        <li class="raiting-star active">★</li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li class="raiting-star">★</li>
-                                                    }
+                                                    <li class="raiting-star active">★</li>
                                                 }
+                                                else
+                                                {
+                                                    <li class="raiting-star">★</li>
+                                                }
+                                            }
 
-                                            </ul>
-                                        </div>*@
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="middle">
@@ -139,41 +139,8 @@
                 <div class="comment-box">
                     <h3>Review</h3>
 
-                    <div class="status-upload">
-                        <form class="">
-                            <textarea class="help-block" placeholder="You can share your impression here?"></textarea>
-                            <div>
-                                <button type="submit" class="btn btn-share help-block">Comment</button>
-                            </div>
-                            <div>
-                                <ul class="stars">
-                                    <span>РЕЙТИНГ</span>
-                                    <li class="raiting-star">★</li>
-                                    <li class="raiting-star">★</li>
-                                    <li class="raiting-star">★</li>
-                                    <li class="raiting-star">★</li>
-                                    <li class="raiting-star">★</li>
-                                </ul>
-                            </div>
-                        </form>
-
-                    </div>
-
-
-                    <div class="row list-coments">
-                        <div class="help-block text-center col-md-2">
-                            <span>Yesterrday at 5:00 am</span>
-                            <span> My Username</span><br />
-                            <img class="img-circle user-img" src="~/Content/images/person-coment.jpg" />
-                        </div>
-                        <div class="help-block col-md-8 user-opinion">
-                            <p>Заповядайте в "RAFFY PARK BAR" София, който се намира на адрес София, Бул. Цариградско Шосе 111 В, София Тех Парк, сграда Уолтопия. Заведението има капацитет от 120 места и е един от ресторантите в град София, който предлага следните типове кухня: Българска, Европейска, Италианска, Средиземноморска , както и следните услуги и екстри: Wi Fi, Паркинг, Безкасово плащане, Климатик, Градина/ тераса, Обедно меню, Промоции. Рeсторанта е подходящ за организиране и празнуване на специални събития - сватби, кръщенета, рождени дни, детски партита, фирмени партита, частни партита.</p>
-                        </div>
-                        <div class="col-md-offset-2"></div>
-                    </div>
-
-
-                    @*@if (User.Identity.IsAuthenticated)
+               
+                    @if (User.Identity.IsAuthenticated)
                         {
                                     @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
                                 }
@@ -182,7 +149,7 @@
                                     <p>you have to log in to write review</p>
                                 }
 
-                                @Html.Action("Index", "Reviews", new { id = Model.Id })*@
+                                @Html.Action("Index", "Reviews", new { id = Model.Id })
 
                 </div>
             </div>

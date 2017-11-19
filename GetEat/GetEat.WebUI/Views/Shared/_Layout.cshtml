@@ -42,11 +42,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-header">
-                  
-                        <a class="navbar-brand navbar-left responsive" href="#">
-                            <img class="responsive" src="~/Content/images/Logo.png" />
-                        </a>
-                    
+
+                    <a class="navbar-brand navbar-left responsive" href="#">
+                        <img class="responsive" src="~/Content/images/Logo.png" />
+                    </a>
+
                 </div>
             </div>
 
@@ -58,6 +58,10 @@
                         <li>@Html.ActionLink("Organisation Profile", "Details", "Organisations", new { area = "Companies", id = SessionState.CurrentOrganisationId }, null)</li>
                         <li>@Html.ActionLink("My Restourants", "Index", "Restourants", new { area = "Companies", organisationId = SessionState.CurrentOrganisationId }, null)</li>
 
+                    }
+                    else if (User.Identity.IsAuthenticated && User.IsInRole(RoleNames.Adminstrator))
+                    {
+                        <li>@Html.ActionLink("Kitchens", "Index", "Kitchens", new { area = "Adminstrator" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

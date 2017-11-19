@@ -5,27 +5,42 @@
 }
 
 
-<table class="table">
 
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Commentator)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WrittenDate)
-        </td>
+@foreach (var item in Model)
+{
+    <div class="row list-coments">
+        <div class="help-block text-center col-md-2">
+            <span>@item.WrittenDate</span>
+            <span>@item.Commentator</span><br />
+            <img class="img-circle user-img" src="~/Content/images/person-coment.jpg" />
+        </div>
+        <div class="help-block col-md-8 user-opinion">
+           <p>@item.Comment</p>
+        </div>
+        <div id="rating">
+            <ul class="stars">
+                @{
+                    var score = item.Score;
+                }
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (score >= i)
+                    {
+                        <li class="raiting-star active">★</li>
+                    }
+                    else
+                    {
+                        <li class="raiting-star">★</li>
+                    }
+                }
 
-    </tr>
+            </ul>
+        </div>
+
+        <div class="col-md-offset-2"></div>
+    </div>
 }
 
-</table>
 
 

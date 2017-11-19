@@ -48,9 +48,9 @@ namespace GetEat.WebUI.Migrations
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser { UserName = "daniela", Email = "daniela@khosravi.bg" };
+                var user = new ApplicationUser { UserName = RoleNames.Adminstrator, Email = "daniela@khosravi.bg" };
 
-                manager.Create(user, "Daniela123#");
+                manager.Create(user, "Daniela123$");
                 manager.AddToRole(user.Id, RoleNames.Adminstrator);
             }
 

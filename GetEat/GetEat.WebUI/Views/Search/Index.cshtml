@@ -23,54 +23,54 @@
                 </div>
             </div>
         </div>
-                @foreach (var item in Model)
+        @foreach (var item in Model)
             {
-                    <div class="restorant-box text-center">
-                        <div class="thumbnail col-md-3">
-                            <div>
+            <div class="restorant-box text-center">
+                <div class="thumbnail col-md-3">
+                    <div>
 
-                                <a class="restorantList" href="/Search/Details/2">
-                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                    @Html.DisplayFor(modelItem => item.Name)
+                        <a class="restorantList" href="/Search/Details/@item.Id">
 
-                                    <img src="~/Content/images/res.jpg" alt="">
+                            @Html.DisplayFor(modelItem => item.Name)
+
+                            <img src="~/Content/images/res.jpg" alt="">
 
 
-                                    <div id="rating">
-                                        <ul class="stars">
-                                            @{
-                                                var score = item.Reviews.Sum(x => x.Score);
-                                            }
-                                            @for (int i = 1; i <= 5; i++)
-                                            {
-                                                if (score >= i)
-                                                {
-                                                    <li class="raiting-star active">★</li>
-                                                }
-                                                else
-                                                {
-                                                    <li class="raiting-star">★</li>
-                                                }
-                                            }
+                            <div id="rating">
+                                <ul class="stars">
+                                    @{
+                                        var score = item.Reviews.Count > 0 ? item.Reviews.Average(x => x.Score) : 0;
+                                    }
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (score >= i)
+                                        {
+                                            <li class="raiting-star active">★</li>
+                                        }
+                                        else
+                                        {
+                                            <li class="raiting-star">★</li>
+                                        }
+                                    }
 
-                                        </ul>
-                                    </div>
-                                    <div class="caption">
-                                        <p>
-                                            @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                            @Html.DisplayFor(modelItem => item.Address.Street)
-                                            @Html.DisplayFor(modelItem => item.Address.Number)
-                                            @Html.DisplayFor(modelItem => item.Address.City)
-                                            @Html.DisplayFor(modelItem => item.Address.Country)
-                                        </p>
-                                    </div>
-                                </a>
-                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                </ul>
                             </div>
-                        </div>
+                            <div class="caption">
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                    @Html.DisplayFor(modelItem => item.Address.Street)
+                                    @Html.DisplayFor(modelItem => item.Address.Number)
+                                    @Html.DisplayFor(modelItem => item.Address.City)
+                                    @Html.DisplayFor(modelItem => item.Address.Country)
+                                </p>
+                            </div>
+                        </a>
+                        @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
                     </div>
-                                                }
-        
+                </div>
+            </div>
+                                        }
+
 
     </div>
 </div>

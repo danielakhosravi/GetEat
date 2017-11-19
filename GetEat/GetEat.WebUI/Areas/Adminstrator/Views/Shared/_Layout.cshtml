@@ -6,31 +6,55 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <header class="container-fluid">
+        <div id="mayNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="navbar-header">
+
+                    <a class="navbar-brand navbar-left responsive" href="/">
+                        <img class="responsive" src="~/Content/images/Logo.png" />
+                    </a>
+
+                </div>
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Organisations", "Index", "Organisations", new { area = "Adminstrator"}, null)</li>
+                    <li>@Html.ActionLink("Restourants", "Index", "Restourants", new { area = "Adminstrator"}, null)</li>
+                    <li>@Html.ActionLink("Kitchens", "Index", "Kitchens", new { area = "Adminstrator" }, null)</li>
+
+
                 </ul>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
+        @*<hr class="hidden" />*@
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="responsive navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav footer">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Terms and conditions</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+
+            </div>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
