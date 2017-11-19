@@ -4,58 +4,56 @@
     ViewBag.Title = "Index";
 }
 
-<div class="logbackground" >
+<div class="logbackground">
     <div class="container">
         <div class="transperant">
-            <h3 class = "anchorstyle text-center center-content" >
+            <h3 class="anchorstyle center-content">
                 @Html.ActionLink("Add New Restourant", "Create", new { organisationId = ViewBag.OrganisationId })
             </h3>
             <div class="container">
-                <table class="table  table-responsive">
-                    <tr class="">
-                        <th></th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.KitchenId)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.UpdatedDate)
-                        </th>
-                        <th></th>
-                    </tr>
-
-                    @foreach (var item in Model)
-                    {
+                <table class="table">
+                    <thead class="">
                         <tr>
-                            <th>
-                                <img src="~/Content/images/bgsweet.png.jpg" />
-                            </th>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Kitchen.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UpdatedDate)
-                            </td>
-                            <td class="anchorstyle">
-                                @Html.ActionLink("Edit", "Edit", new { restourantId = item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { restourantId = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { restourantId = item.Id })
-                            </td>
+                            <th>Profil Picture</th>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.KitchenId)</th>
+                            <th>@Html.DisplayNameFor(model => model.UpdatedDate)</th>
                         </tr>
-                    }
+                    </thead>
+                    <tbody>
 
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img class="img-company" src="~/Content/images/bgsweet.png.jpg" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Kitchen.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="anchorstyle text-center" colspan="4" >
+                                    @Html.ActionLink("Edit", "Edit", new { restourantId = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { restourantId = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { restourantId = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
             </div>
-            </div>
+        </div>
     </div>
 </div>
-        @section scripts {
-            <script type="text/javascript" src="~/Scripts/geteat/company.js">
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/geteat/company.js">
 
-            </script>
-        }
+    </script>
+}

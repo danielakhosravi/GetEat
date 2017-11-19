@@ -7,121 +7,71 @@
 <h2>Index</h2>
 <div class="container-fluid">
     <div class="logbackground center-content">
-        <div class="container">
-            <div>
-                <button type="button" class="book" data-toggle="modal" data-target="#myModal">book to GetEat</button>
-            </div>
-
-            <!-- Trigger the modal with a button -->
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content text-center">
-                        <div class="modal-header ">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Fined your GetEat place</h4>
+        <div class="container text-center">
+            <div class="row wrap">
+                <div class="ui-widget">
+                    <form action="/Home/Search" method="post">
+                        <div class="responsive searchbar">
+                            <label for="city">Find</label>
+                            <input id="city" class="dropdown-toggle" placeholder="place, city">
+                            <span>|</span>
+                            <label for="cuisine">Kitchen</label>
+                            <input id="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
+                            <button class="dropdown-toggle buttonGet" type="submit" value="submit"> Search </button>
                         </div>
-                        <div class="modal-body">
-                           
-                            <p>Make reservation.</p>
-                            <div class="holder-input">
-                                <div class="form-group">
-                                    <select class="selectpicker form-control">
-                                        <option value="1">1 person</option>
-                                        <option value="2">2 people</option>
-                                        <option value="3">3 people</option>
-                                        <option value="4">4 people</option>
-                                        <option value="5">5 people</option>
-                                        <option value="6">6 people</option>
-                                        <option value="7" selected="selected">7 people</option>
-                                        <option value="8">8 people</option>
-                                        <option value="9">9 people</option>
-                                        <option value="10">10 people</option>
-                                        <option value="11">11 people</option>
-                                        <option value="12">12 people</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class='input-group datepicker' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group timepicker">
-                                        <input id="timepicker2" type="text" class="form-control ">
-                                        <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-time"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-default" data-dismiss="modal">Reserved</button>
-                                </div>
-                            </div>
-                    </div>
-
+                    </form>
                 </div>
-
             </div>
-
         </div>
-
-        <div class="row wrap">
-
-            @foreach (var item in Model)
+                @foreach (var item in Model)
             {
-                <div class="restorant-box text-center">
-                    <div class="thumbnail col-md-3">
-                        <div>
-                            <a class="restorantList" href="/Search/Details/2">
-                                @Html.DisplayFor(modelItem => item.Organisation.Name)
-                                @Html.DisplayFor(modelItem => item.Name)
-                                <img src="~/Content/images/res.jpg" alt="">
+                    <div class="restorant-box text-center">
+                        <div class="thumbnail col-md-3">
+                            <div>
+
+                                <a class="restorantList" href="/Search/Details/2">
+                                    @Html.DisplayFor(modelItem => item.Organisation.Name)
+                                    @Html.DisplayFor(modelItem => item.Name)
+
+                                    <img src="~/Content/images/res.jpg" alt="">
 
 
-                                <div id="rating">
-                                    <ul class="stars">
-                                        @{
+                                    <div id="rating">
+                                        <ul class="stars">
+                                            @{
                                                 var score = item.Reviews.Sum(x => x.Score);
-                                        }
-                                        @for (int i = 1; i <= 5; i++)
+                                            }
+                                            @for (int i = 1; i <= 5; i++)
                                             {
                                                 if (score >= i)
                                                 {
-                                            <li class="raiting-star active">★</li>
+                                                    <li class="raiting-star active">★</li>
                                                 }
                                                 else
                                                 {
-                                            <li class="raiting-star">★</li>
+                                                    <li class="raiting-star">★</li>
                                                 }
                                             }
 
-                                    </ul>
-                                </div>
-                                <div class="caption">
-                                    <p>
-                                        @Html.DisplayFor(modelItem => item.Address.Neighborhood)
-                                        @Html.DisplayFor(modelItem => item.Address.Street)
-                                        @Html.DisplayFor(modelItem => item.Address.Number)
-                                        @Html.DisplayFor(modelItem => item.Address.City)
-                                        @Html.DisplayFor(modelItem => item.Address.Country)
-                                    </p>
-                                </div>
-                            </a>
-                            @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                                        </ul>
+                                    </div>
+                                    <div class="caption">
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.Address.Neighborhood)
+                                            @Html.DisplayFor(modelItem => item.Address.Street)
+                                            @Html.DisplayFor(modelItem => item.Address.Number)
+                                            @Html.DisplayFor(modelItem => item.Address.City)
+                                            @Html.DisplayFor(modelItem => item.Address.Country)
+                                        </p>
+                                    </div>
+                                </a>
+                                @*@Html.ActionLink("see more", "Details", new { id = item.Id }) |*@
+                            </div>
                         </div>
                     </div>
-                </div>
                                                 }
-        </div>
+        
+
     </div>
 </div>
 

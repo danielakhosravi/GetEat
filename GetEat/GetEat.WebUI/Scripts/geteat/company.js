@@ -16,6 +16,15 @@ $(document).ready(function () {
         $("this").addClass(".active");
         $("this").prevAll().addClass(".secondary-active");
     });
+
+    $("#maxChars").keypress(function () {
+      
+        if ($(this).val().length >= 24) {
+            //$(this).val($(this).val().slice(0, 24));
+            alert("This field can take a maximum of 24 characters");
+        }
+    
+    });
  
 //    $('.carousel').carousel({
 //        interval: 6000

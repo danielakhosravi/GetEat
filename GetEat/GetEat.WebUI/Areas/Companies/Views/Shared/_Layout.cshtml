@@ -40,17 +40,19 @@
     <div class="container-fluid body-content">
         @RenderBody()
         @*<hr class="hidden" />*@
-        <footer class="container-fluid navbar-fixed-bottom navbar navbar-default responsive" role="navigation">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav footer">
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Contact us</a></li>
-                </ul>
+        <footer>
+            <div class="responsive navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav footer">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Terms and conditions</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
 
             </div>
-            <p class="text-right">&copy; @DateTime.Now.Year - GetEat</p>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

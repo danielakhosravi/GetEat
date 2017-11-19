@@ -18,11 +18,10 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 body {
-    font-family: 'Graphik Regular';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-stretch: normal;
-    font-size: 16px;
+     font-size: 16px;
     
 }
 html {
@@ -39,6 +38,7 @@ textarea {
     max-width: 430px;
     position: relative;
     line-height: 3em;
+    color:#808080;
 }
 
 .form-horizontal .form-group {
@@ -65,7 +65,7 @@ ul.nav.navbar-nav {
 
 }
 
-.navbar-default .navbar-nav > li > a, a {
+.navbar-default .navbar-nav > li > a {
     color: #FE9D00;
 }
 
@@ -84,8 +84,13 @@ ul.nav.navbar-nav {
 .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 5px;
+    
 }
-
+.navbar-toggle {margin-right:35px;
+}
+.navbar-nav > li > a:last-child {
+    padding-right: 25px;
+}
 .navbar-brand {
     padding: 0px 10px;
 }
@@ -141,7 +146,9 @@ ul.nan.navbar-nav.footer {
 
 
 label {
+    color: #808080;
     padding: 0 1%;
+   
 }
 
 span {
@@ -164,7 +171,6 @@ span {
 }
 
 
-
 .btnAll:hover,:focus,:active,
 .buttonGet:hover,:focus,:active
  {
@@ -178,30 +184,45 @@ span {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border: hidden;
-    padding:0px 12px;
+    padding: 0px 12px;
     position: relative;
     line-height: 3em;
     font-weight: bold;
     color: #fff;
     background-color: #FE9D00;
-    float:right;
-       
+    float: right;
+    padding: 0px 30px;
 }
+       
+
 .btnAll { float:right;
          color: #fff;
          background-color: #FE9D00;
          font-weight: bold;
          width: 130px;
 }
-
+/*AUTOCOMPLETE HOME PG*/
 .highlight {
     background-color: #fff;
     list-style-type: none;
-    max-width: 160px;
+    max-width: 200px;
     position: relative;
     color: #080808;
     cursor: pointer;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 60px;
+    padding-bottom: 15px;
+    padding-top:0px;
 }
+.ui-autocomplete {
+    max-height: 200px;
+   }
+/* IE 6 doesn't support max-heigh */
+* html .ui-autocomplete {
+    height: 00px;
+}
+
 
 @media (max-width: 1024px) {
 div.searchbar {
@@ -232,7 +253,7 @@ div.searchbar {
  h1 {
         font-size: 1.5em;
 }
-.buttonGet {
+    .buttonGet {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         width: 430px;
@@ -329,7 +350,7 @@ span {
 }
 .anchorstyle>a:hover {
         text-decoration: none;
-        color:#6284B4;
+        color:#fff;
         
 }
 
@@ -338,10 +359,22 @@ span {
     padding: 0;
     width: 100%;
     margin: auto;
+    min-width:1000px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
+}
+td, tr {
+    padding: 1%;
+}
+
+    td.anchorstyle {
+        border-top: none;
+    }
+
+.table tbody > tr > td:last-child {
+    border-top: none;
 }
 .savebtn { color:#FE9D00;
            font-weight:bolder;
@@ -351,8 +384,12 @@ textarea {min-width:430px;
           border-radius:5px;
           
 }
-th > img {width:50px;
-          height:50px; 
+    textarea[placeholder] {padding-left:15px;
+                           color:#080808;
+    }
+.img-company {
+    width: 50px;
+    height: 50px;
 }
 
 @media (max-width: 768px) {
@@ -437,7 +474,8 @@ a:hover {
 
 /*PROFIL*/
 
-.book {width: 90%;
+.book {
+    width: 80%;
     height: 40px;
     margin: 0 auto;
     text-align: center;
@@ -449,18 +487,12 @@ a:hover {
     line-height: 40px;
     text-transform: uppercase;
     font-size: 18px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     position: relative;
-    z-index: 10;
-    left: 50%;
-    -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    top: 100px;
     border-color: #fff;
     
 }
-    .book:hover {
+.book:hover {
         color: #6284B4;
         
     }
@@ -493,10 +525,14 @@ a:hover {
 
 }
 .middle {margin:0 auto;
-         width: 250px;
+        max-width:300px;
+        font-size:0.5em;
 }
 .info {
     color: #080808;
+}
+.overview {
+    padding-left:3%;
 }
 
 /*Part Coment*/
@@ -507,7 +543,7 @@ a:hover {
    color: #fff;
    line-height:20px;
    font-size: 18px;
-   letter-spacing: 2px;
+   letter-spacing: 1px;
    position: relative;
    z-index: 10;
    border-color: #fff;
@@ -537,3 +573,6 @@ a:hover {
     padding-top:5px;
       
 }
+div.status-upload>div{display:inline-block;
+}
+
