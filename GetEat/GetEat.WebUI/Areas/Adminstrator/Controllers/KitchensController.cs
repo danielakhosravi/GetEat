@@ -47,8 +47,10 @@ namespace GetEat.WebUI.Areas.Adminstrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,CreatedDate,UpdatedDate")] Kitchen kitchen)
+        public ActionResult Create([Bind(Include = "Id,Name,Description")] Kitchen kitchen)
         {
+            kitchen.CreatedDate = DateTime.Now;
+            kitchen.UpdatedDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Kitchens.Add(kitchen);
@@ -79,11 +81,14 @@ namespace GetEat.WebUI.Areas.Adminstrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,CreatedDate,UpdatedDate")] Kitchen kitchen)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description")] Kitchen kitchen)
         {
+            kitchen.CreatedDate = DateTime.Now;
+            kitchen.UpdatedDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(kitchen).State = EntityState.Modified;
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

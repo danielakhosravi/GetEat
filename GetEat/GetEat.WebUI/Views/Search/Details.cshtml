@@ -80,9 +80,16 @@
                             <div class="text-center">
                                 <h2>Raffy Bar & Gelato Park</h2>
                                 <div class="form-group">
-                                    <div>
-                                        <button type="button" class="book" data-toggle="modal" data-target="#myModal">book table here</button>
-                                    </div>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div>
+                                            <button type="button" class="book" data-toggle="modal" data-target="#myModal">book table here</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <p>you have to </p><a class="logForm" href="/Account/Login" id="loginLink">Log in</a><p> to book restourant</p>
+                                    }
 
                                     <div id="rating">
                                         <ul class="stars">
@@ -110,7 +117,7 @@
                                 <span class="glyphicon glyphicon-cutlery info"><strong> Кухня:</strong> Суши, Рибна, Пица, Италианска и Интернационална</span>
                             </div>
                         </div>
-                     
+
                         <article class="overview">
                             <h4 class="text-center">За ресторанта</h4>
                             Заповядайте в "RAFFY PARK BAR" София, който се намира на адрес София, Бул. Цариградско Шосе 111 В, София Тех Парк, сграда Уолтопия. Заведението има капацитет от 120 места и е един от ресторантите в град София, който предлага следните типове кухня: Българска, Европейска, Италианска, Средиземноморска , както и следните услуги и екстри: Wi Fi, Паркинг, Безкасово плащане, Климатик, Градина/ тераса, Обедно меню, Промоции.
@@ -135,21 +142,23 @@
 
             </div>
 
+            <div id="map" style="width:900px;height:400px"></div>
+
             <div class="row col">
                 <div class="comment-box">
-                    <h3>Review</h3>
+                    <h3>Reviews</h3>
 
-               
+
                     @if (User.Identity.IsAuthenticated)
-                        {
-                                    @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
-                                }
-                                else
-                                {
-                                    <p>you have to log in to write review</p>
-                                }
+                    {
+                        @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
+                    }
+                    else
+                    {
+                        <p>you have to </p><a class="logForm" href="/Account/Login" id="loginLink">Log in</a><p> to Write comment</p>
+                    }
 
-                                @Html.Action("Index", "Reviews", new { id = Model.Id })
+                    @Html.Action("Index", "Reviews", new { id = Model.Id })
 
                 </div>
             </div>
@@ -159,4 +168,16 @@
 
 @section scripts {
     <script type="text/javascript" src="~/Scripts/geteat/home.js"></script>
+    <script>
+        function mapInitialise() {
+            var mapOptions = {
+                center: new google.maps.LatLng(51.5, -0.12),
+                zoom: 18,
+                mapTypeId: google.maps.MapTypeId.satellite
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=mapInitialise&key=AIzaSyACtwzGqclUR7OIYSgdQDfQg2G03YDoass"></script>
+
 }

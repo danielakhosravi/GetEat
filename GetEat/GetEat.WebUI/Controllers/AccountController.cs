@@ -97,6 +97,10 @@ namespace GetEat.WebUI.Controllers
                         SessionState.CurrentOrganisationId = organisation.Id;
                         return RedirectToAction("Index", "Restourants", new { area = AreasNames.Companies, organisationId = organisation.Id });
                     }
+                    else if (UserManager.GetRoles(aspUserId).First() == RoleNames.Adminstrator)
+                    {
+                        return RedirectToAction("Index", "Restourants", new { area = AreasNames.Adminstrator});
+                    }
 
                     return RedirectToAction("Index", "Home", new { id = userProfileId });
 

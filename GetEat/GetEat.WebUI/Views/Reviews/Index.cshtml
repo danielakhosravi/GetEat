@@ -6,41 +6,47 @@
 
 
 
-
-@foreach (var item in Model)
+@if (Model.Any())
 {
-    <div class="row list-coments">
-        <div class="help-block text-center col-md-2">
-            <span>@item.WrittenDate</span>
-            <span>@item.Commentator</span><br />
-            <img class="img-circle user-img" src="~/Content/images/person-coment.jpg" />
-        </div>
-        <div class="help-block col-md-8 user-opinion">
-           <p>@item.Comment</p>
-        </div>
-        <div id="rating">
-            <ul class="stars">
-                @{
-                    var score = item.Score;
-                }
-                @for (int i = 1; i <= 5; i++)
-                {
-                    if (score >= i)
-                    {
-                        <li class="raiting-star active">★</li>
-                    }
-                    else
-                    {
-                        <li class="raiting-star">★</li>
-                    }
-                }
 
-            </ul>
-        </div>
+    foreach (var item in Model)
+    {
+        <div class="row list-coments">
+            <div class="help-block text-center col-md-2">
+                <span>@item.WrittenDate</span>
+                <span>@item.Commentator</span><br />
+                <img class="img-circle user-img" src="~/Content/images/person-coment.jpg" />
+            </div>
+            <div class="help-block col-md-8 user-opinion">
+                <p>@item.Comment</p>
+            </div>
+            <div id="rating">
+                <ul class="stars">
+                    @{
+                        var score = item.Score;
+                    }
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (score >= i)
+                        {
+                    <li class="raiting-star active">★</li>
+                        }
+                        else
+                        {
+                    <li class="raiting-star">★</li>
+                        }
+                    }
 
-        <div class="col-md-offset-2"></div>
-    </div>
+                </ul>
+            </div>
+
+            <div class="col-md-offset-2"></div>
+        </div>
+    }
 }
-
+else
+{
+ <p>niama komentari</p>
+}
 
 
