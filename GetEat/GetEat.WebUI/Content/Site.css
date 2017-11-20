@@ -37,10 +37,18 @@ textarea {
     border: hidden;
     max-width: 430px;
     position: relative;
+    color: #808080;
+}
+input,
+select {
     line-height: 3em;
-    color:#808080;
+}
+textarea {padding-left:7px;
 }
 
+label {
+  padding-top:1%;
+}|
 .form-horizontal .form-group {
     margin-right: 5px;
     margin-left: 5px;
@@ -144,11 +152,9 @@ ul.nan.navbar-nav.footer {
     padding: 2% 0px;
 }
 
-
-label {
+.searchbar-label {
     color: #808080;
     padding: 0 1%;
-   
 }
 
 span {
@@ -224,59 +230,7 @@ span {
 }
 
 
-@media (max-width: 1024px) {
-div.searchbar {
-        max-width: 100%;
-        border-radius:10px;
-}
-.buttonGet {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        width: 100%;
-        position: relative;
-        line-height: 3em;
-        font-weight: bold;
-        margin-left: 0px;
-    }
 
-}
-@media (max-width: 768px) {
- 
-div.searchbar {
-        width: 430px;
-        max-width: 100%;
-        line-height: 3em;
-        border-radius:10px;
-}
- h1 {
-        font-size: 1.5em;
-}
-    .buttonGet {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        width: 430px;
-        max-width: 100%;
-        position: relative;
-        line-height: 3em;
-        font-weight: bold;
-        margin-left: 0px;
-    }
- input,
- select,
- textarea {
-        border: hidden;
-        max-width: 100%;
-        line-height: 3em;
-        font-size: 12px;
-}
-
-label {
-        padding: 0;
-        font-size: 12px;
-}
-}
 /*LOG IN & REGISTER*/
 .logbackground {
     padding: 0;
@@ -353,35 +307,32 @@ span {
         color:#fff;
         
 }
+.form-center {margin-left:50px;
+}
 
 .companibkgr {
     background-image: url('images/bgsweet.png.jpg');
     padding: 0;
     width: 100%;
     margin: auto;
-    min-width:1000px;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
+    min-height: 1000px;
 }
-td, tr {
+.change > a {
+    color: #FE9D00;
+    font-weight: bolder;
     padding: 1%;
 }
-
-    td.anchorstyle {
-        border-top: none;
-    }
-
-.table tbody > tr > td:last-child {
-    border-top: none;
-}
+  
 .savebtn { color:#FE9D00;
            font-weight:bolder;
            width:120px;
 }
-textarea {min-width:430px;
-          border-radius:5px;
+textarea { border-radius:5px;
+           width: 100%;
           
 }
     textarea[placeholder] {padding-left:15px;
@@ -390,18 +341,6 @@ textarea {min-width:430px;
 .img-company {
     width: 50px;
     height: 50px;
-}
-
-@media (max-width: 768px) {
-    div.companibkgr {
-        min-height: 1200px;
-    }
-    .transperant {min-height: 900px;
-    }
-    textarea {min-width:320px;
-              border-radius:5px;
-          
-}
 }
 
 /*INDEX RESTOURANTS LIST*/
@@ -425,11 +364,12 @@ a:hover {
     text-decoration: none;
 }
 
+ 
 
-.col-md-3 { width:240px;
-            height:340px;
-            margin:5px;
-   
+.col-md-3 {
+    width: 240px;
+    height: 340px;
+    margin: 6px;
 }
 
 .caption p {  
@@ -508,8 +448,8 @@ a:hover {
 }
 
 
-.wrap { margin-top: 120px;
-        margin-bottom:10px;
+.wrap { margin-top: 70px;
+        margin-bottom:15px;
      
 }
 .review {
@@ -576,3 +516,80 @@ a:hover {
 div.status-upload>div{display:inline-block;
 }
 
+
+@media (max-width: 1024px) {
+    div.searchbar {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .buttonGet {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 100%;
+        position: relative;
+        line-height: 3em;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    textarea {
+        width: 100%;
+        border-radius: 5px;
+    }
+ 
+}
+
+@media (max-width: 768px) {
+    th.mobile, td.mobile {
+        display: none;
+    }
+
+    div.searchbar {
+        width: 430px;
+        max-width: 100%;
+        line-height: 3em;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .buttonGet {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 430px;
+        max-width: 100%;
+        position: relative;
+        line-height: 3em;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+
+    input,
+    select,
+    textarea {
+        border: hidden;
+        max-width: 350px;
+        font-size: 12px;
+    }
+
+    .searchbar-label {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    div.companibkgr {
+        min-height: 1200px;
+    }
+
+    .transperant {
+        min-height: 1000px;
+    }
+}

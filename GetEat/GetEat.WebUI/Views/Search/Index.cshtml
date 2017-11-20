@@ -6,16 +6,16 @@
 
 <h2>Index</h2>
 <div class="container-fluid">
-    <div class="logbackground center-content">
+    <div class="logbackground">
         <div class="container text-center">
             <div class="row wrap">
                 <div class="ui-widget">
                     <form action="/Home/Search" method="post">
                         <div class="responsive searchbar">
-                            <label for="city">Find</label>
+                            <label class="searchbar-label" for="city">Find</label>
                             <input id="city" class="dropdown-toggle" placeholder="place, city">
                             <span>|</span>
-                            <label for="cuisine">Kitchen</label>
+                            <label class="searchbar-label" for="cuisine">Kitchen</label>
                             <input id="cuisine" class="dropdown-toggle" type="text" placeholder="type sushi, french...">
                             <button class="dropdown-toggle buttonGet" type="submit" value="submit"> Search </button>
                         </div>
@@ -26,7 +26,7 @@
         @foreach (var item in Model)
             {
             <div class="restorant-box text-center">
-                <div class="thumbnail col-md-3">
+                <div class="thumbnail col-md-3 col-sm-2">
                     <div>
 
                         <a class="restorantList" href="/Search/Details/@item.Id">

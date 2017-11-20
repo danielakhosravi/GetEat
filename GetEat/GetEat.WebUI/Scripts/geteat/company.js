@@ -3,9 +3,7 @@ $(document).ready(function () {
 
     //Background height
 
-    $(window).on("load resize", function () {
-        $(".companibkgr", ".screen-bgr").css("height", window.innerHeight);
-
+   
 
        
     });
@@ -25,7 +23,10 @@ $(document).ready(function () {
         }
     
     });
- 
+    $(window).on("load resize", function () {
+        $(".companibkgr", ".screen-bgr").css("height", window.innerHeight);
+
+    });
 //    $('.carousel').carousel({
 //        interval: 6000
 //    })
@@ -94,5 +95,4 @@ $(document).ready(function () {
 //  }
 //)
 
-});
 
