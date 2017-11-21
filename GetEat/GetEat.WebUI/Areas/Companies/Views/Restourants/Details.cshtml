@@ -5,13 +5,12 @@
 }
 <div class="companibkgr">
     <div class="row">
-        <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content">
-            <div class="transperant">
-                <h2 class="center-content">Restourant details</h2>
-                <hr />
-                <div>
-                    <dl class="dl-horizontal">
-                        <dt>
+        <div class="transperant">
+            <section class="col-sm-12 col-md-8 col-md-push-2  center-content">
+                <h2 class="text-center">Restourant details</h2>
+                    <div class="restorant-details">
+                <dl class="dl-horizontal">
+                        <dt class="text-left">
                             @Html.DisplayNameFor(model => model.Name)
                         </dt>
 
@@ -81,14 +80,15 @@
                             @Html.DisplayFor(model => model.UpdatedDate)
                         </dd>
                     </dl>
-                </div>
-                <ul class="list-inline">
-                    <li class="anchorstyle">@Html.ActionLink("Edit", "Edit", new { restourantId = Model.Id })</li>      
+                  </div>
+                <ul class="list-inline text-center">
+                    <li class="anchorstyle">@Html.ActionLink("Edit", "Edit", new { restourantId = Model.Id })</li>
                     <li class="anchorstyle">@Html.ActionLink("Back to List", "Index", new { organisationId = Model.OrganisationId })</li>
                 </ul>
-            </div>
-        </section>
-        <aside class="col-md-2 col-md-pull-8"></aside>
-        <aside class="col-md-2"></aside>
+            </section>
+
+            <aside class="col-md-2 col-md-pull-8"></aside>
+            <aside class="col-md-2"></aside>
+        </div>
     </div>
 </div>

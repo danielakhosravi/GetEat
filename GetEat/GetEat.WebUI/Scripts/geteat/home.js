@@ -6,6 +6,7 @@ $(document).ready(function () {
     InitialiseKitchen();
 
     InitialiseCity();
+    
 });
 
 function InitialiseKitchen()
@@ -64,7 +65,7 @@ function InitialiseScore()
 
     $("[data-toggle=tooltip]").tooltip();
 }
-
+   
 
 
 $(window).on("load resize", function () {
@@ -128,7 +129,7 @@ function InitialiseCity()
         },
 
         select: function (value, data) {
-            if (typeof data == "undefined") {
+            if (typeof data === "undefined") {
                 addMessage('You selected: ' + value + "<br/>");
             } else {
                 addMessage('You selected: ' + data.item.value + "<br/>");
