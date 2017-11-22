@@ -2,39 +2,38 @@
     ViewBag.Title = "Contact Us";
 }
 <div class="container-fluid">
-        <div class="row contactbackgr">
-               
-                     <div class="header col-12">
-                         <h2 class="text-center">@ViewBag.Title.</h2>
-                         @*<h3>@ViewBag.Message</h3>*@
-                     </div>
-             
-           
-         </div> 
-    <div class="row">
-        <section class="contactdetails text-center">
-            <div class="row">
-                <addres class="col col-md-6" >
+    <div class="row contactbackgr">
+       <div class="header col">
+            <h2 class="text-center">@ViewBag.Title.</h2>
+            @*<h3>@ViewBag.Message</h3>*@
+       </div>
+    </div>
+    
+        <section class="contactdetails">
+            <div class="row container">
+                <address class="col-md-4">
                     <h3>Contact details</h3>
                     <p>For general queries, please email</p>
                     <strong>Support:</strong><a href="mailto:Support@geteat.com">Support@example.com</a>
-                    <p>If you're restaurant, please contact</p>
+                    <p>If you're organization, please contact</p>
                     <strong>Marketing:</strong><a href="mailto:Marketing@geteat.com">Marketing@example.com</a>
-                </addres>
-                <address  class="col col-md-6" >
+                </address>
+                <address class="col-md-4">
                     <h3>Address details</h3>
                     One Microsoft Way
                     Redmond, WA 98052-6399<br />
-                    <abbr title="Phone">P:</abbr>
-                    425.555.0100
+                    <abbr title="Phone">P</abbr>
+                    425 555 0100
                 </address>
-
+                <article class="col-md-4">
+                  <h3>Private Dining</h3>  
+                   <p>For social gatherings, corporate events or intimate dinners contact us.</p> 
+                </article>
             </div>
 
         </section>
     </div>
-    
-</div>
+
 @section scripts {
     <script type="text/javascript" src="~/Scripts/geteat/home.js">
 

@@ -21,7 +21,7 @@
                 <p>@item.Comment</p>
             </div>
             <div class="col-md-4" id="rating">
-                <ul class="stars">
+                <ul class="stars text-center">
                     @{
                         var score = item.Score;
                     }
@@ -39,14 +39,12 @@
 
                 </ul>
             </div>
-
-            <div class="col-md-offset-4"></div>
         </div>
     }
 }
 else
 {
- <p>No comments</p>
+ <p class="comment">No comments</p>
 }
 
 

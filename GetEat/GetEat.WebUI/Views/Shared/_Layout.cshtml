@@ -9,29 +9,7 @@
 
 </head>
 <body>
-    <!--Top Nav bar-->
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>*@
-    <!--Top Nav bar-->
-    <!--Daniela Navigation bar-->
+     
     <header class="container-fluid">
         <div id="mayNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 
@@ -43,7 +21,7 @@
                 </button>
                 <div class="navbar-header">
 
-                    <a class="navbar-brand navbar-left responsive" href="#">
+                    <a class="navbar-brand navbar-left responsive" href="~/Home/index">
                         <img class="responsive" src="~/Content/images/Logo.png" />
                     </a>
 
@@ -65,10 +43,7 @@
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
-                @*<ul class="nav navbar-nav navbar-right">
-                        <li class="logForm"><a href="Registration.html">Sign in</a></li>
-                        <li class="logForm"><a href="Registration.html">Join</a></li>
-                    </ul>*@
+               
             </div>
         </div>
     </header>
@@ -86,7 +61,8 @@
                 <ul class="nav navbar-nav footer">
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="../Home/Contact">Contact us</a></li>
+                    
                 </ul>
             </div>
 

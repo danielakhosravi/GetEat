@@ -44,13 +44,13 @@ function InitialiseScore()
 {
     $("a#registrate").on('click', function () {
         $('input[type = checkbox]').prop('checked', true)
-        $(this).css('color', '#DC8DC9');
-        $("a#logIn").css('color', '#FE9D00');
+        $(this).css('color', '#FE9D00');
+        $("a#logIn").css('color', 'rgba(0,0,0,0.5)');
     });
     $("a#logIn").on('click', function () {
-        $('input[type = checkbox]').prop('checked', false)
-        $(this).css('color', '#DC8DC9');
-        $("a#registrate").css('color', '#FE9D00');
+        $('input[type = checkbox]').prop('checked', false)& 
+        $(this).css('color', '#FE9D00');
+        $("a#registrate").css('color', 'rgba(0,0,0,0.5)');
 
     });
 

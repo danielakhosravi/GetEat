@@ -131,13 +131,13 @@ ul.nan.navbar-nav.footer {
 
 /*HOME PAGE Main Part*/
 .screen-bgr {
-    background-image: url('images/bgroung.png.jpg');
+    background-image: url('images/homepage.png.jpg');
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
     width: 100%;
-    min-height:1200px;
+    min-height: 1200px;
 }
 
 
@@ -235,7 +235,7 @@ span {
 .logbackground {
     padding: 0;
     width: 100%;
-    background-image: url('images/logprofil.jpg');
+    background-image: url('images/loginprofil.jpg');
     margin: auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -266,11 +266,10 @@ span {
 
 
 /*/*CONTACT*/
+
 .contactbackgr {
-    /*background-image: url('images/bg.png.jpeg');*/
-    background-image: url('images/homePage.jpg');
-    height: 400px;
-    background-attachment: scroll;
+    background-image: url('images/contact.png.jpg');
+    /*height: 450px;*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -278,14 +277,15 @@ span {
 .header {background-color: rgba(0,0,0,0.5);
          padding:10px;
          color:#fff;
-         margin-top:320px;
+         margin-top:370px;
 
 }
 
 .contactdetails {
+    padding-top:15px;
     background-color: #D6D3DC;
     margin-bottom: 0px;
-    height:250px;
+    height:450px;
 }
 
 /*COMPANY PROFILE*/
@@ -311,7 +311,7 @@ span {
 }
 
 .companibkgr {
-    background-image: url('images/bgsweet.png.jpg');
+    background-image: url('images/company.png.jpg');
     padding: 0;
     width: 100%;
     margin: auto;
@@ -348,14 +348,12 @@ textarea { border-radius:5px;
 
 
 img { 
-     max-width:100%;
-    
+     max-width:100%; 
 }
 
-a.restorantList {color:#808080;
+a.restorantList {color:#FE9D00;
                  text-transform:uppercase;
-    
-	}
+}
     
 a:hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";  /*IE 8*/ 
@@ -396,11 +394,9 @@ a:hover {
     border: 1px solid #e5e5e5;
 }
 
-    .book:hover, :active, .popupBtn:hover, :active {
-        color: gray;
-    }
-
-
+.book:hover, :active, .popupBtn:hover, :active {
+    color: gray;
+}
 
 
  /*RATING STARS*/
@@ -418,11 +414,9 @@ a:hover {
  .stars li:hover { color: #ff0;
                 opacity: 1;
                 transform: rotateX(0deg);
-              
-    }
+}
  .stars li.active, .stars li.secondary-active   {color: #ff0;
-               
-    }
+}
 
 /*PROFIL*/
 
@@ -442,7 +436,6 @@ a:hover {
     letter-spacing: 1px;
     position: relative;
     border-color: #fff;
-    
 }
 
 .loginbtn {
@@ -462,19 +455,22 @@ a:hover {
     color: #fff;
     margin: 15px 0px;
 }
+    .comment-box > h3, .comment {
+        padding-left: 15px;
+    }
 .map {
-    max-width: 100%;
-    height: 250px;
+        max-width: 100%;
+        height: 250px;
 }
 .wrap { margin-top: 80px;
         margin-bottom:17px;
-     
 }
 
 
 .review {
     max-width: 520px;
     max-height: 430px;
+    height:400px;
     background-color: #fff;
     color: #080808;
     padding: 10px;
@@ -484,7 +480,6 @@ a:hover {
 .restorant {
     border-bottom:1px solid #ddd;
     padding-bottom:10px;
-
 }
 .middle {margin:0 auto;
         max-width:300px;
@@ -501,8 +496,7 @@ a:hover {
 /*Part Coment*/
 .btn-share {
     border: 1px solid #e5e5e5;
-    
-    text-decoration: none;
+     text-decoration: none;
     background-color: #FE9D00;
     color: #fff;
     line-height: 20px;
@@ -523,7 +517,6 @@ a:hover {
     outline:none;
 }
 .list-coments {
-  
     border-bottom:1px solid #ddd;
     border-top:1px solid #ddd;
     color:#fff;
@@ -539,19 +532,22 @@ a:hover {
 }
 div.status-upload>div{display:inline-block;
 }
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+
+.carousel-inner > .item > img {
     width: 100%;
-    height:100%;
+    height: 100%;
+  
+}
+div.submit >div{display:inline-block;
 }
 
 @media (max-width: 1024px) {
     div .searchbar {
         max-width: 100%;
         border-radius: 10px;
-    }
+}
 
-    .buttonGet {
+.buttonGet {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 10px;
@@ -561,7 +557,7 @@ div.status-upload>div{display:inline-block;
         line-height: 3em;
         font-weight: bold;
         margin-left: 0px;
-    }
+ }
 }
 
 @media (max-width: 768px) {

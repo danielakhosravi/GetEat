@@ -149,28 +149,39 @@
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
                                 <li data-target="#myCarousel" data-slide-to="3"></li>
+                                <li data-target="#myCarousel" data-slide-to="4"></li>
+                                <li data-target="#myCarousel" data-slide-to="5"></li>
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
 
                                 <div class="item active">
-                                    <img src="~/Content/images/rest2.jpg" alt="" width="400" height="300">
+                                    <img  src="~/Content/images/rgalery.jpg" alt="">
                                 </div>
+                              
 
                                 <div class="item">
-                                    <img src="~/Content/images/rest2.jpg" alt="" width="400" height="300">
+                                    <img src="~/Content/images/raffi.jpg" alt="">
                                 </div>
+                                
 
                                 <div class="item">
-                                    <img src="~/Content/images/rest2.jpg" alt="" width="400" height="300">
+                                    <img  src="~/Content/images/res.jpg" alt="">
                                 </div>
+                              
 
                                 <div class="item">
-                                    <img src="~/Content/images/rest2.jpg" alt="" width="400" height="300">
+                                    <img src="~/Content/images/rafgar.jpg" alt="">
                                 </div>
-
+                                <div class="item">
+                                    <img src="~/Content/images/raffig.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/images/rafgal.jpg" alt="">
+                                </div>
                             </div>
+                          
 
                             <!-- Left and right controls -->
                             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -192,26 +203,23 @@
                 <div class="col">
                     <div class="comment-box">
                         <h3>Reviews</h3>
-                        <br>
 
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
+                            }
+                            else
+                            {
+                                <div>
+                                    <ul class="list-inline">
+                                        <li><p class="comment">You have to </p></li>
+                                        <li class="back-btn"><a class="logForm" href="/Account/Login" id="loginLink">Log in</a></li>
+                                        <li><p>to write comment.</p></li>
+                                    </ul>
+                                </div>
+                            }
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            @Html.Partial("~/Views/Reviews/Create.cshtml", new ReviewViewModel() { RestourantId = Model.Id })
-                        }
-                        else
-                        {
-                            <div>
-                                <ul class="list-inline">
-                                    <li><p>You have to </p></li>
-                                    <li class="back-btn"><a class="logForm" href="/Account/Login" id="loginLink">Log in</a></li>
-                                    <li><p>to write comment.</p></li>
-                                </ul>
-                            </div>
-                        }
-
-                        @Html.Action("Index", "Reviews", new { id = Model.Id })
-
+                            @Html.Action("Index", "Reviews", new { id = Model.Id })
                     </div>
                 </div>
             </div>
