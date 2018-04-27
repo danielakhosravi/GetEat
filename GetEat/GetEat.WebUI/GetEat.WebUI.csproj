@@ -251,11 +251,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\5bed85a2d3e3b5461120f914accc3b95.jpg" />
     <Content Include="Content\images\company.png.jpg" />
     <Content Include="Content\images\contact.png.jpg" />
+    <Content Include="Content\images\danemark-assiette-viande.jpg" />
+    <Content Include="Content\images\dddd.jpg" />
     <Content Include="Content\images\galeryraf.jpg" />
+    <Content Include="Content\images\hhhhh.jpg" />
     <Content Include="Content\images\homepage.png.jpg" />
     <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\Logoo.png" />
     <Content Include="Content\images\person-coment.jpg" />
     <Content Include="Content\images\raffig.jpg" />
     <Content Include="Content\images\rafgal.jpg" />

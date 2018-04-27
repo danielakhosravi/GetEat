@@ -26,7 +26,7 @@ body {
 }
 html {
     overflow-x: hidden;
-    margin: 0,auto;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -38,6 +38,7 @@ textarea {
     max-width: 430px;
     position: relative;
     color: #808080;
+    outline: none;
 }
 input,
 select {
@@ -48,7 +49,7 @@ textarea {padding-left:7px;
 
 label {
   padding-top:1%;
-}|
+}
 .form-horizontal .form-group {
     margin-right: 5px;
     margin-left: 5px;
@@ -59,13 +60,11 @@ label {
     margin: 0;
 }
 
-
-
 .row {
     margin: 0px 0px;
 }
 
-/*Navigation & footer*/
+/*Navigation & Footer*/
 
 ul.nav.navbar-nav {
     padding-top: 1%;
@@ -73,29 +72,26 @@ ul.nav.navbar-nav {
 
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar .navbar-nav > li > a {
     color: #FE9D00;
 }
 
-.navbar-default .navbar-nav > li > a:hover, a {
-        color: #6284B4;
+.navbar .navbar-nav > li > a:hover {
+        color: #ffffff;
         
 }
-.navbar-default .navbar-nav > li > a:active,:focus, a
+.navbar .navbar-nav > li > a:active,:focus, a
  {      text-decoration:none;
         outline:none;
 }
-.header-nav-link {
-    border-bottom: 1px solid;
-}
+
 
 .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 5px;
     
 }
-.navbar-toggle {margin-right:35px;
-}
+
 .navbar-nav > li > a:last-child {
     padding-right: 25px;
 }
@@ -113,43 +109,66 @@ ul.nav.navbar-nav {
     padding-top: 1%;
     padding-bottom: 1%;
 }
-/*navbar::after {clear
-}*/
-.footer > li {
-    padding-left: 20px;
-    padding-bottom:10px;
-    }
-ul.nan.navbar-nav.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #efefef;
-  text-align: center;
+
+footer {
+    background-color: #772e05;
+    
 }
 
+ul.nan.navbar-nav.footer {
+    background-color: #772e05;
+    
+}
+.navbar {
+    background-color: #772e05;
+    margin-bottom: 0px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+}
 
-/*HOME PAGE Main Part*/
-.screen-bgr {
-    background-image: url('images/homepage.png.jpg');
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color:transparent;
+
+}
+/*samdwitch icom*/
+.navbar-toggle {
+    margin-right: 28px;
+    margin-top:17px;
+    padding:12px;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #FE9D00;
+}
+  .navbar-inverse .navbar-toggle:hover,
+  .navbar-inverse .navbar-toggle:focus {
+        background-color: #FE9D00;
+    }
+
+    /*HOME PAGE Main Part*/
+    .screen-bgr {
+    background-image: url('images/danemark-assiette-viande.jpg');
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
     width: 100%;
-    min-height: 1200px;
+    margin-top:30px;
+      
 }
 
 
 .transperant {
     margin-top: 120px;
-    height: 440px;
+    height: 360px;
     background-color: rgba(0,0,0,0.5);
     color: #fff;
 }
 
 .center-content {
-    padding: 2% 0px;
+    padding: 3.5% 0px;
 }
 
 .searchbar-label {
@@ -158,7 +177,7 @@ ul.nan.navbar-nav.footer {
 }
 
 span {
-    color:#FE9D00;
+    color:#FE9D00; 
     font-size: 1.5em;
 }
 
@@ -177,13 +196,12 @@ span {
 }
 
 
-.btnAll:hover,:focus,:active,
-.buttonGet:hover,:focus,:active
- {
-    color:#6284B4;
-    text-decoration:none;
-    border-color:none;
-    outline:none;
+.btnAll:hover, :focus, :active,
+.buttonGet:hover, :focus, :active {
+    color: #772e05;
+    text-decoration: none;
+    border-color: none;
+    outline: none;
 }
 
 .buttonGet {
@@ -243,9 +261,15 @@ span {
     background-size: cover;
     min-height:1000px;
 }
-
+.register-form {
+    margin-top:150px;
+    padding:20px;
+    border-radius:10px;
+    background-color: rgba(0,0,0,0.3);
+}
+.head {color:#fff;
+}
 span {
-    
     font-size: small;
     /*color: #FE9D00;*/
 }
@@ -254,12 +278,13 @@ span {
     color: #FE9D00;
     text-decoration: none;
     text-decoration-line: none;
-    font-size:1em;
+    font-size:0.9em;
     font-weight: bold;
+ 
 }
 
 .linksaccount > a:hover {
-        color:#6284B4;
+        color:#fff;
         text-decoration: none;
         text-decoration-line: none;
 }
@@ -288,30 +313,64 @@ span {
     height:450px;
 }
 
-/*COMPANY PROFILE*/
+/*COMPANY PROFILE Details*/
 
-.dl-horizontal {padding:5px;
+.navbar {border:none;
 }
 
-.profilhead { margin-top:50px;
-     
+.head-detailes {
+    color: #FE9D00;
+    text-transform: uppercase;
+    font-weight: bold;
 }
-.anchorstyle >a {text-decoration:none;
-                 color:#FE9D00;
-                 font-weight:bolder;
-                 padding-left:25px;
-           
+.anchorstyle > a {
+    text-decoration: none;
+    background-color:#FE9D00;
+    color:#772e05;
+    font-weight: bolder;
+    padding: 5px 15px;
+    border-radius:5px;
 }
 .anchorstyle>a:hover {
         text-decoration: none;
         color:#fff;
         
 }
-.form-center {margin-left:50px;
+.button-save {
+    background-color: #fff;
+    color: #FE9D00;
+    font-weight: bolder;
+    border-radius: 5px;
+    height: 34px;
+    padding: 6px 25px;
+    font-size: 14px;
+    line-height: 1.428571429;
 }
-
+  .button-save:hover, .button-back a:hover {
+        color: #772e05;
+        
+    }
+.button-back  {
+    background-color: #FE9D00;
+     height: 34px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    font-weight: bolder;
+}
+    .button-back a {
+        padding: 6px 20px;
+        color: #fff;
+    }
+    
+    
+    dt, dd, .paragraph {
+        padding: 5px 15px;
+        color: #fff;
+    }
+.form-info { padding-bottom:40px;
+}
 .companibkgr {
-    background-image: url('images/company.png.jpg');
+    background-image: url('images/hhhhh.jpg');
     padding: 0;
     width: 100%;
     margin: auto;
@@ -321,7 +380,7 @@ span {
     background-size: cover;
     min-height: 1000px;
 }
-.change > a {
+change > a {
     color: #FE9D00;
     font-weight: bolder;
     padding: 1%;
@@ -342,7 +401,6 @@ textarea { border-radius:5px;
     width: 50px;
     height: 50px;
 }
-
 /*INDEX RESTOURANTS LIST*/
 /* Global */
 
@@ -544,10 +602,11 @@ div.submit >div{display:inline-block;
 @media (max-width: 1024px) {
     div .searchbar {
         max-width: 100%;
-        border-radius: 10px;
-}
-
-.buttonGet {
+        border-radius: 10px;}
+    .screen-bgr, .logbackground, .companibkgr {
+        min-height: 1300px;
+    }
+    .buttonGet {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 10px;
@@ -557,22 +616,23 @@ div.submit >div{display:inline-block;
         line-height: 3em;
         font-weight: bold;
         margin-left: 0px;
- }
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768x) {
 
     textarea {
         width: 100%;
         border-radius: 5px;
     }
- 
-}
+    .screen-bgr, .logbackground, .companibkgr {
+        min-height: 950px;
+    }
 
-@media (max-width: 768px) {
     th.mobile, td.mobile {
         display: none;
     }
+    
 
     div.searchbar {
         width: 430px;
@@ -612,8 +672,5 @@ div.submit >div{display:inline-block;
     div.companibkgr {
         min-height: 1200px;
     }
-
-    .transperant {
-        min-height: 1000px;
-    }
 }
+

@@ -5,23 +5,23 @@
 }
 <div class="companibkgr">
     <div class="row">
-        <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content">
-            <div class="transperant">
-               <div  class="center-content"> <h2 class="center-content">Company details</h2>
+        <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content register-form">
+          
+               <div  class="center-content"> <h2 class="center-content head-detailes">Company details</h2>
             </div>
                 
-                <dl class="dl-horizontal">
+                <dl class="row">
 
 
-                    <dt>
+                    <dt class="text-center col-md-6">
                         @Html.DisplayNameFor(model => model.Name)
                     </dt>
 
-                    <dd>
+                    <dd class="">
                         @Html.DisplayFor(model => model.Name)
                     </dd>
 
-                    <dt>
+                    <dt class="text-center col-md-6">
                         @Html.DisplayNameFor(model => model.Phone)
                     </dt>
 
@@ -29,7 +29,7 @@
                         @Html.DisplayFor(model => model.Phone)
                     </dd>
 
-                    <dt>
+                    <dt class="text-center col-md-6">
                         @Html.DisplayNameFor(model => model.Fax)
                     </dt>
 
@@ -37,7 +37,7 @@
                         @Html.DisplayFor(model => model.Fax)
                     </dd>
 
-                    <dt>
+                    <dt class="col-md-6">
                         @Html.DisplayNameFor(model => model.CreatedDate)
                     </dt>
 
@@ -45,7 +45,7 @@
                         @Html.DisplayFor(model => model.CreatedDate)
                     </dd>
 
-                    <dt>
+                    <dt class="text-center col-md-6">
                         @Html.DisplayNameFor(model => model.UpdatedDate)
                     </dt>
 
@@ -56,12 +56,8 @@
                 </dl>
                 <ul class="list-inline">
                     <li><h4>Make your profile changes</h4></li>
-                    <li class="anchorstyle"><a href="/Companies/Organisations/Edit/@Model.Id">here</a></li>
+                    <li class="anchorstyle"><a class="badge" href="/Companies/Organisations/Edit/@Model.Id">here</a></li>
                 </ul>
-
-
-
-            </div>
 
         </section>
         <aside class="col-md-2 col-md-pull-8"></aside>

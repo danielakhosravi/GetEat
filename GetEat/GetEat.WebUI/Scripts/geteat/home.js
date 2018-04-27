@@ -6,7 +6,8 @@ $(document).ready(function () {
     InitialiseKitchen();
 
     InitialiseCity();
-    
+
+    $('#datetimepicker').data("DateTimePicker").FUNCTION()
 });
 
 function InitialiseKitchen()
@@ -71,20 +72,6 @@ function InitialiseScore()
 $(window).on("load resize", function () {
     $(".screen-bgr", ".logbackground", ".contactbackgr").css("height", window.innerHeight);
 });
-
-//$(function () {
-//    $('#datetimepicker1').datetimepicker();
-//});
-
-//$('#timepicker2').timepicker({
-//    minuteStep: 1,
-//                               template: 'modal',
-//                               appendWidgetTo: 'body',
-//                               showSeconds: true,
-//                               showMeridian: false,
-//                               defaultTime: false
-//                           });
-
 
 
 
@@ -164,7 +151,6 @@ function monkeyPatchAutocomplete() {
 function addMessage(msg) {
     $('#msgs').append(msg);
 }
-
 
 
 

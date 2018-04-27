@@ -5,10 +5,10 @@
 <div class="companibkgr">
     <div class="row">
         <section class="col-sm-12 col-md-8 col-md-push-2 text-center center-content">
-            <div class="transperant">
+            <div class="register-form">
                 <div class="center-content">
-                    <h2 class="text-center center-content">Company account</h2>
-                    <p>Changing your profile options lets you control how others see you and your profile.</p>
+                    <h2 class="text-center center-content head-detailes">Company account</h2>
+                    <p class="paragraph">Changing your profile options lets you control how others see you and your profile.</p>
                 </div>
                 @using (Html.BeginForm())
                 {
@@ -20,33 +20,33 @@
                         @Html.HiddenFor(model => model.Id)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-md-2  col-md-offset-2" })
+                            <div class="col-md-6">
                                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "col-md-2 col-md-offset-2" })
+                            <div class="col-md-6">
                                 @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "col-md-2 col-md-offset-2" })
+                            <div class="col-md-6">
                                 @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group row">
                             <ul class="list-inline">
-                                <li><input type="submit" value="Save" class="btn btn-default savebtn" /></li>
-                                <li class="anchorstyle">@Html.ActionLink("Back", "Details", new { id = Model.Id })</li>
+                                <li ><input class="button-save" type="submit" value="Save" placeholder="Save"/></li>
+                                <li class="btn button-back">@Html.ActionLink("Back", "Details", new { id = Model.Id })</li>
                             </ul>
                         </div>
                     </div>
