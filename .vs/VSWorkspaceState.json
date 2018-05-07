@@ -1,0 +1,22 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GetEat",
+    "\\GetEat\\GetEat.WebUI",
+    "\\GetEat\\GetEat.WebUI\\Areas",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Adminstrator",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Adminstrator\\Controllers",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies\\Views",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies\\Views\\Addresses",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies\\Views\\Events",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies\\Views\\Menus",
+    "\\GetEat\\GetEat.WebUI\\Areas\\Companies\\Views\\Organisations",
+    "\\GetEat\\GetEat.WebUI\\Views",
+    "\\GetEat\\GetEat.WebUI\\Views\\Search",
+    "\\GetEat\\GetEat.WebUI\\Views\\Shared",
+    "\\GetEat\\GetEat.WebUI\\Views\\UserProfiles"
+  ],
+  "SelectedNode": "\\GetEat\\GetEat.WebUI\\Views\\Search\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

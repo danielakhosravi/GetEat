@@ -6,7 +6,7 @@
 
 <div class="logbackground">
     <div class="container">
-        <div class="transperant">
+        <div class="register-form">
             <h3 class="anchorstyle center-content">
                 @Html.ActionLink("Add New Restourant", "Create", new { organisationId = ViewBag.OrganisationId })
             </h3>
@@ -14,11 +14,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="mobile">Picture</th>
-                            <th>@Html.DisplayNameFor(model => model.Name)</th>
-                            <th>@Html.DisplayNameFor(model => model.KitchenId)</th>
-                            <th class="mobile">@Html.DisplayNameFor(model => model.UpdatedDate)</th>
-                            <th class="change">Changes</th>
+                            <th class="mobile head">Picture</th>
+                            <th class="head">@Html.DisplayNameFor(model => model.Name)</th>
+                            <th class="head">@Html.DisplayNameFor(model => model.KitchenId)</th>
+                            <th class="mobile head">@Html.DisplayNameFor(model => model.UpdatedDate)</th>
+                            <th class="change head">Changes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +27,7 @@
                         {
                             <tr>
                                 <td class="mobile">
-                                    <img class="img-company img-rounded" src="~/Content/images/bgsweet.png.jpg" />
+                                    <img class="img-company img-rounded" src="~/Content/images/gallery-re.jpg" />
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
